@@ -15,14 +15,36 @@ namespace Ativ_Sistema_de_Vendas
 {
     public partial class FrmCategoria : Form
     {
+        //indica que o usuario clicou em NOVO
         private bool Insercao = false;
+        //indica que o usuario clicou em ALTERAR
+        private bool Alteracao = false;
+        //indica que existe uma categoria consultada
+        private bool categoriaCarregada = false;
         public FrmCategoria()
     {
         InitializeComponent();
+        configurarFormulario();
 
         btnFechar.Click += btnFechar_Click;
-    
     }
+
+        private void configurarFormulario()
+        {
+            txtBuscarCategoria.Enabled = true;
+
+            txtCdCategoria.Enabled = Insercao;
+            txtNomeCategoria.Enabled = Insercao || Alteracao;
+
+            btnNovo.Enabled = !Insercao && !Alteracao;
+            btnSalvar.Enabled = Insercao || Alteracao;
+            btnCancelar.Enabled = Insercao || Alteracao;
+
+            btnAlterar.Enabled = categoriaCarregada && !Insercao && !Alteracao;
+            btnExcluir.Enabled = categoriaCarregada && !Insercao && !Alteracao;
+        }
+
+
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -51,15 +73,26 @@ namespace Ativ_Sistema_de_Vendas
         {
             try
             {
-                if(!Insercao)
+                if(!Insercao && !Alteracao)
                 {
                     throw new Exception("Escolha primeiro qual operação que deseja executar!");
                 }
 
                 verificaCampos();
-                salvarCategoria();
+
+                if (Insercao)
+                {
+                  salvarCategoria();
+                }
+                else if (Alteracao)
+                {
+                    alterarCategoria();
+                }
 
                 Insercao = false;
+                Alteracao = false;
+
+                configurarFormulario();
             }
             catch(Exception ex)
             {
@@ -71,16 +104,19 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-            btnSalvar.Enabled = true;
             Insercao = true;
+            Alteracao = false;
+            categoriaCarregada = false;
 
             txtCdCategoria.Clear();
             txtNomeCategoria.Clear();
 
-            txtNomeCategoria.Focus();
+            configurarFormulario();
+
+            txtCdCategoria.Focus();
         }
 
-        private void salvarCategoria()
+        private void salvarCategoria() //fazer verificação se o código é único
         {
             Conexao conexao = new Conexao();
 
@@ -103,6 +139,12 @@ namespace Ativ_Sistema_de_Vendas
             }
 
             MessageBox.Show("Categoria cadastrada com sucesso!");
+
+            Insercao = false;
+            Alteracao = false;
+            categoriaCarregada = true;
+
+            configurarFormulario();
         }
 
         //UPDATE
@@ -112,20 +154,84 @@ namespace Ativ_Sistema_de_Vendas
 
         }
 
+        private void alterarCategoria()
+        {
+
+        }
+
         //SELECT
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                consultarCategorias();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
 
+        private void consultarCategorias()
+        {
+
+            if (!int.TryParse(txtBuscarCategoria.Text.Trim(), out int codigo))
+            {
+                throw new Exception("Informe um código válido para consulta!");
+            }
+
+            Conexao conexao = new Conexao();
+
+            using(SqlConnection conn = conexao.conectar())
+            {
+                conn.Open();
+
+                string sql = @"SELECT CdCategoria, NomeCategoria FROM Categoria WHERE CdCategoria = @CdCategoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@CdCategoria", SqlDbType.Int).Value = codigo;
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            txtCdCategoria.Text = reader["CdCategoria"].ToString();
+                            txtNomeCategoria.Text = reader["NomeCategoria"].ToString();
+
+                            categoriaCarregada = true;
+                            Insercao = false;
+                            Alteracao = false;
+
+                            configurarFormulario();
+                        }
+                        else
+                        {
+                            txtCdCategoria.Clear();
+                            txtNomeCategoria.Clear();
+
+                            categoriaCarregada = false;
+
+                            configurarFormulario();
+
+                            throw new Exception("Categoria não encontrada!");
+                        }
+                    }
+                }
+            }
         }
 
         //DELETE
 
         private void btnExcluir_Click(object sender, EventArgs e)
-        {
+        { 
 
         }
 
+        private void excluirCategoria()
+        {
 
+        }
     }
 }
