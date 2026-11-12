@@ -53,11 +53,11 @@ namespace Ativ_Sistema_de_Vendas
 
         public void verificaCampos()
         {
-            if(txtCdCategoria.Text != "" && txtNomeCategoria.Text != "")
+            if(!string.IsNullOrWhiteSpace(txtCdCategoria.Text) && !string.IsNullOrWhiteSpace(txtNomeCategoria.Text))
             {
                 
                 if(!int.TryParse(txtCdCategoria.Text.Trim(), out int cdCategoria)){
-                    throw new Exception("Apenas números são aceitos. Tente Novamente!"); 
+                    throw new Exception("Apenas números são aceitos para o código. Tente Novamente!"); 
                 }
 
                 string nmCategoria = txtNomeCategoria.Text.Trim();
@@ -91,8 +91,12 @@ namespace Ativ_Sistema_de_Vendas
 
                 Insercao = false;
                 Alteracao = false;
+                categoriaCarregada = true;
 
                 configurarFormulario();
+
+                txtCdCategoria.Clear();
+                txtNomeCategoria.Clear();
             }
             catch(Exception ex)
             {
@@ -139,24 +143,60 @@ namespace Ativ_Sistema_de_Vendas
             }
 
             MessageBox.Show("Categoria cadastrada com sucesso!");
-
-            Insercao = false;
-            Alteracao = false;
-            categoriaCarregada = true;
-
-            configurarFormulario();
         }
 
         //UPDATE
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
+            try { 
+                if (!categoriaCarregada)
+                {
+                    throw new Exception("Consulte uma categoria antes de alterar!");
+                }
 
-        }
+                Insercao = false;
+                Alteracao = true;
+
+                configurarFormulario();
+
+                txtNomeCategoria.Focus();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+}
 
         private void alterarCategoria()
         {
+            Conexao conexao = new Conexao();
 
+            using (SqlConnection conn = conexao.conectar())
+            {
+                conn.Open();
+
+                string sql = @"UPDATE Categoria SET NomeCategoria = @NomeCategoria WHERE CdCategoria = @CdCategoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@CdCategoria",
+                        int.Parse(txtCdCategoria.Text));
+
+                    cmd.Parameters.AddWithValue("@NomeCategoria",
+                        txtNomeCategoria.Text.Trim());
+
+                    //retorna a quantidade de linha afetadas pelo comando
+                    int linhasAfetadas = cmd.ExecuteNonQuery(); 
+
+                    if (linhasAfetadas == 0)
+                    {
+                        throw new Exception("Nenhuma categoria foi alterada.");
+                    }
+                }
+            }
+
+            MessageBox.Show("Categoria alterada com sucesso!");
         }
 
         //SELECT
@@ -225,13 +265,81 @@ namespace Ativ_Sistema_de_Vendas
         //DELETE
 
         private void btnExcluir_Click(object sender, EventArgs e)
-        { 
+        {
+            try
+            {
+                if (!categoriaCarregada)
+                {
+                    throw new Exception("Consulte uma categoria antes de excluí-la!");
+                }
 
+                int codigo = int.Parse(txtCdCategoria.Text);
+                string nome = txtNomeCategoria.Text;
+
+                DialogResult resposta = MessageBox.Show(
+                    $"Deseja excluir a categoria {codigo} — {nome}?",
+                    "Confirmar exclusão",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question
+                );
+
+                if (resposta == DialogResult.Yes)
+                {
+                    excluirCategoria(codigo);
+
+                    txtCdCategoria.Clear();
+                    txtNomeCategoria.Clear();
+
+                    categoriaCarregada = false;
+
+                    configurarFormulario();
+
+                    MessageBox.Show("Categoria excluída com sucesso!");
+                }
+            }
+            catch (SqlException ex)
+            { //erro do sql que indica uma restrição de integridade
+                if (ex.Number == 547)
+                {
+                    MessageBox.Show("Não é possível excluir esta categoria, pois existem produtos vinculados a ela.", 
+                        "Exclusão não permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                  MessageBox.Show("Erro ao excluir a categoria: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atenção",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private void excluirCategoria()
+        private void excluirCategoria(int codigo)
         {
+            Conexao conexao = new Conexao();
 
+            using (SqlConnection conn = conexao.conectar())
+            {
+                conn.Open();
+
+                string sql = @"DELETE FROM Categoria
+                       WHERE CdCategoria = @CdCategoria";
+
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.Add("@CdCategoria", SqlDbType.Int).Value = codigo;
+
+                    //retorna a quantidade de linha afetadas pelo comando
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
+
+                    if (linhasAfetadas == 0)
+                    {
+                        throw new Exception("A categoria não foi encontrada para exclusão.");
+                    }
+                }
+            }
         }
     }
 }
