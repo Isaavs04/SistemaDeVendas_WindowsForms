@@ -21,6 +21,8 @@ namespace Ativ_Sistema_de_Vendas
         private bool Alteracao = false;
         //indica que existe uma categoria consultada
         private bool categoriaCarregada = false;
+        //Guarda o nome da categoria caso a alteração seja cancelada
+        private string nomeCategoriaOriginal;
         public FrmCategoria()
     {
         InitializeComponent();
@@ -31,19 +33,20 @@ namespace Ativ_Sistema_de_Vendas
 
         private void configurarFormulario()
         {
-            txtBuscarCategoria.Enabled = true;
+            txtBuscarCategoria.Enabled = !Insercao && !Alteracao;
 
             txtCdCategoria.Enabled = Insercao;
             txtNomeCategoria.Enabled = Insercao || Alteracao;
 
             btnNovo.Enabled = !Insercao && !Alteracao;
+            btnConsultar.Enabled = !Insercao && !Alteracao;
+
             btnSalvar.Enabled = Insercao || Alteracao;
             btnCancelar.Enabled = Insercao || Alteracao;
 
             btnAlterar.Enabled = categoriaCarregada && !Insercao && !Alteracao;
             btnExcluir.Enabled = categoriaCarregada && !Insercao && !Alteracao;
         }
-
 
         private void btnFechar_Click(object sender, EventArgs e)
         {
@@ -60,7 +63,6 @@ namespace Ativ_Sistema_de_Vendas
                     throw new Exception("Apenas números são aceitos para o código. Tente Novamente!"); 
                 }
 
-                string nmCategoria = txtNomeCategoria.Text.Trim();
             }
             else
             {
@@ -91,7 +93,7 @@ namespace Ativ_Sistema_de_Vendas
 
                 Insercao = false;
                 Alteracao = false;
-                categoriaCarregada = true;
+                categoriaCarregada = false;
 
                 configurarFormulario();
 
@@ -105,7 +107,6 @@ namespace Ativ_Sistema_de_Vendas
         }
 
         //INSERT
-
         private void btnNovo_Click(object sender, EventArgs e)
         {
             Insercao = true;
@@ -146,7 +147,6 @@ namespace Ativ_Sistema_de_Vendas
         }
 
         //UPDATE
-
         private void btnAlterar_Click(object sender, EventArgs e)
         {
             try { 
@@ -154,6 +154,8 @@ namespace Ativ_Sistema_de_Vendas
                 {
                     throw new Exception("Consulte uma categoria antes de alterar!");
                 }
+
+                nomeCategoriaOriginal = txtNomeCategoria.Text;
 
                 Insercao = false;
                 Alteracao = true;
@@ -200,7 +202,6 @@ namespace Ativ_Sistema_de_Vendas
         }
 
         //SELECT
-
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             try
@@ -263,7 +264,6 @@ namespace Ativ_Sistema_de_Vendas
         }
 
         //DELETE
-
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             try
@@ -340,6 +340,25 @@ namespace Ativ_Sistema_de_Vendas
                     }
                 }
             }
+        }
+
+        //Cancela alteração do btnAlteração ou do btnNovo
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (Alteracao)
+            {
+                txtNomeCategoria.Text = nomeCategoriaOriginal;
+            }
+            else if (Insercao)
+            {
+                txtCdCategoria.Clear();
+                txtNomeCategoria.Clear();
+            }
+
+            Insercao = false;
+            Alteracao = false;
+
+            configurarFormulario();
         }
     }
 }
