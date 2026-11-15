@@ -316,6 +316,7 @@
             // 
             // cBoxUFRG
             // 
+            this.cBoxUFRG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxUFRG.FormattingEnabled = true;
             this.cBoxUFRG.Items.AddRange(new object[] {
             "AC",
@@ -365,6 +366,7 @@
             // 
             // cBoxStatus
             // 
+            this.cBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxStatus.FormattingEnabled = true;
             this.cBoxStatus.Location = new System.Drawing.Point(278, 284);
             this.cBoxStatus.Name = "cBoxStatus";
@@ -480,6 +482,7 @@
             // 
             // cBoxUFEndereco
             // 
+            this.cBoxUFEndereco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxUFEndereco.FormattingEnabled = true;
             this.cBoxUFEndereco.Items.AddRange(new object[] {
             "AC",
