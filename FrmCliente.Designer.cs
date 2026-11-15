@@ -661,15 +661,17 @@
             this.txtTelefone.Name = "txtTelefone";
             this.txtTelefone.Size = new System.Drawing.Size(216, 20);
             this.txtTelefone.TabIndex = 34;
+            this.txtTelefone.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtCpf
             // 
             this.txtCpf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.txtCpf.Location = new System.Drawing.Point(32, 182);
-            this.txtCpf.Mask = "000000000-00";
+            this.txtCpf.Mask = "000.000.000-00";
             this.txtCpf.Name = "txtCpf";
             this.txtCpf.Size = new System.Drawing.Size(212, 20);
             this.txtCpf.TabIndex = 33;
+            this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // pictureBox3
             // 

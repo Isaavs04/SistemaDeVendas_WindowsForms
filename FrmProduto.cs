@@ -432,7 +432,6 @@ namespace Ativ_Sistema_de_Vendas
 
         private void txtNomeProduto_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }
