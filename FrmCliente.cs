@@ -203,7 +203,11 @@ namespace Ativ_Sistema_de_Vendas
 
         private void estadosTela()
         {
+            //Novo usuário, alterar informações
 
+            //Consultar
+
+            //Excluir
         }
 
         private void btnFechar_Hover(object sender, EventArgs e)
@@ -239,5 +243,31 @@ namespace Ativ_Sistema_de_Vendas
         {
             btnMinimizar.BackColor = Color.FromArgb(78, 38, 102);
         }
+
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            reiniciarTela();
+        }
+
+        private void reiniciarTela()
+        {
+            txtNome.Clear();
+            txtNome.Focus();
+            txtCdCliente.Clear();
+            txtTelefone.Clear();
+            txtCpf.Clear();
+            txtRG.Clear();
+            cBoxUFRG.SelectedIndex = -1;
+            txtLimiteCredito.Clear();
+            cBoxStatus.SelectedIndex = -1;
+            txtCEP.Clear();
+            cBoxUFEndereco.SelectedIndex = -1;
+            txtCidade.Clear();
+            txtRua.Clear();
+            txtBairro.Clear();
+            txtNum.Clear();
+            txtComplemento.Clear();
+        }
+        
     }
 }
