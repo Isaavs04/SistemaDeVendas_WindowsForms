@@ -9,9 +9,10 @@ namespace Ativ_Sistema_de_Vendas.BancoDados
 {
     public class Conexao
     {
-        private string conexao = @"Data Source=localhost;
-        Initial Catalog=dbSistemaDeVendas;
-        Integrated Security=True";
+        private string conexao = @"Data Source=localhost;" +
+                          @"Initial Catalog=SistemaDeVendas;" +
+                          @"Integrated Security=True;" +
+                          @"TrustServerCertificate=True";
 
         public SqlConnection conectar()
         {

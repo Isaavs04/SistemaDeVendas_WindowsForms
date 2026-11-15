@@ -89,9 +89,9 @@
             // 
             // txtCdCliente
             // 
-            this.txtCdCliente.Location = new System.Drawing.Point(278, 76);
+            this.txtCdCliente.Location = new System.Drawing.Point(278, 78);
             this.txtCdCliente.Name = "txtCdCliente";
-            this.txtCdCliente.Size = new System.Drawing.Size(72, 20);
+            this.txtCdCliente.Size = new System.Drawing.Size(129, 20);
             this.txtCdCliente.TabIndex = 0;
             // 
             // label1
@@ -348,7 +348,7 @@
             ""});
             this.cBoxUFRG.Location = new System.Drawing.Point(278, 226);
             this.cBoxUFRG.Name = "cBoxUFRG";
-            this.cBoxUFRG.Size = new System.Drawing.Size(72, 21);
+            this.cBoxUFRG.Size = new System.Drawing.Size(125, 21);
             this.cBoxUFRG.TabIndex = 24;
             // 
             // label14
