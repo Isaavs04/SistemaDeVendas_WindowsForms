@@ -34,7 +34,6 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtRG = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtNum = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -45,7 +44,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtCidade = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCEP = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.txtLimiteCredito = new System.Windows.Forms.TextBox();
@@ -70,21 +68,27 @@
             this.txtRua = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtRG = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.painelArrastar = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.painelArrastar.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCdCliente
@@ -149,14 +153,6 @@
             this.label4.Size = new System.Drawing.Size(28, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "RG";
-            // 
-            // txtRG
-            // 
-            this.txtRG.Location = new System.Drawing.Point(31, 228);
-            this.txtRG.MaxLength = 11;
-            this.txtRG.Name = "txtRG";
-            this.txtRG.Size = new System.Drawing.Size(213, 20);
-            this.txtRG.TabIndex = 6;
             // 
             // label5
             // 
@@ -261,14 +257,6 @@
             this.label10.Size = new System.Drawing.Size(36, 18);
             this.label10.TabIndex = 19;
             this.label10.Text = "CEP";
-            // 
-            // txtCEP
-            // 
-            this.txtCEP.Location = new System.Drawing.Point(28, 91);
-            this.txtCEP.MaxLength = 9;
-            this.txtCEP.Name = "txtCEP";
-            this.txtCEP.Size = new System.Drawing.Size(131, 20);
-            this.txtCEP.TabIndex = 18;
             // 
             // label11
             // 
@@ -403,7 +391,7 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsultar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(187, 3);
+            this.btnConsultar.Location = new System.Drawing.Point(136, 3);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 42);
             this.btnConsultar.TabIndex = 32;
@@ -417,7 +405,7 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(99, 3);
+            this.btnExcluir.Location = new System.Drawing.Point(24, 3);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 42);
             this.btnExcluir.TabIndex = 33;
@@ -431,7 +419,7 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(363, 3);
+            this.btnNovo.Location = new System.Drawing.Point(348, 4);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 42);
             this.btnNovo.TabIndex = 34;
@@ -445,12 +433,13 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(451, 3);
+            this.btnSalvar.Location = new System.Drawing.Point(448, 3);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 42);
             this.btnSalvar.TabIndex = 35;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // btnAlterar
             // 
@@ -459,7 +448,7 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlterar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(275, 3);
+            this.btnAlterar.Location = new System.Drawing.Point(239, 3);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 42);
             this.btnAlterar.TabIndex = 36;
@@ -471,14 +460,17 @@
             this.btnFechar.BackColor = System.Drawing.Color.Transparent;
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(11, 3);
+            this.btnFechar.Location = new System.Drawing.Point(482, 3);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(75, 42);
+            this.btnFechar.Size = new System.Drawing.Size(69, 23);
             this.btnFechar.TabIndex = 37;
-            this.btnFechar.Text = "Fechar";
+            this.btnFechar.Text = "X";
             this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click_1);
+            this.btnFechar.MouseEnter += new System.EventHandler(this.btnFechar_MouseEnter);
+            this.btnFechar.MouseLeave += new System.EventHandler(this.btnFechar_MouseLeave);
             // 
             // cBoxUFEndereco
             // 
@@ -523,16 +515,15 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Controls.Add(this.btnConsultar);
             this.panel2.Controls.Add(this.btnAlterar);
             this.panel2.Controls.Add(this.btnNovo);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel2.Location = new System.Drawing.Point(-9, 604);
+            this.panel2.Location = new System.Drawing.Point(-8, 655);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(553, 67);
+            this.panel2.Size = new System.Drawing.Size(567, 53);
             this.panel2.TabIndex = 39;
             // 
             // panel1
@@ -540,7 +531,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(45, -2);
+            this.panel1.Location = new System.Drawing.Point(47, 36);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(460, 613);
@@ -561,7 +552,6 @@
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.txtBairro);
-            this.panel4.Controls.Add(this.txtCEP);
             this.panel4.Controls.Add(this.txtCidade);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label5);
@@ -617,16 +607,28 @@
             // panel7
             // 
             this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel7.Controls.Add(this.txtCEP);
             this.panel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(427, 256);
             this.panel7.TabIndex = 32;
             // 
+            // txtCEP
+            // 
+            this.txtCEP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.txtCEP.Location = new System.Drawing.Point(25, 90);
+            this.txtCEP.Mask = "00000-000";
+            this.txtCEP.Name = "txtCEP";
+            this.txtCEP.Size = new System.Drawing.Size(133, 20);
+            this.txtCEP.TabIndex = 36;
+            this.txtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtRG);
             this.panel3.Controls.Add(this.txtTelefone);
             this.panel3.Controls.Add(this.txtCpf);
             this.panel3.Controls.Add(this.pictureBox3);
@@ -641,7 +643,6 @@
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.cBoxUFRG);
-            this.panel3.Controls.Add(this.txtRG);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.txtNome);
             this.panel3.Controls.Add(this.label14);
@@ -652,6 +653,16 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(427, 317);
             this.panel3.TabIndex = 30;
+            // 
+            // txtRG
+            // 
+            this.txtRG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.txtRG.Location = new System.Drawing.Point(32, 229);
+            this.txtRG.Mask = "00.000.000-0";
+            this.txtRG.Name = "txtRG";
+            this.txtRG.Size = new System.Drawing.Size(212, 20);
+            this.txtRG.TabIndex = 35;
+            this.txtRG.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
             // txtTelefone
             // 
@@ -709,24 +720,52 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.Gemini_Generated_Image_74cw4z74cw4z74cw;
-            this.pictureBox4.Location = new System.Drawing.Point(4, -2);
+            this.pictureBox4.Location = new System.Drawing.Point(-6, 23);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(555, 613);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.Size = new System.Drawing.Size(555, 642);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
+            // 
+            // painelArrastar
+            // 
+            this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.painelArrastar.Controls.Add(this.btnFechar);
+            this.painelArrastar.Controls.Add(this.btnMinimizar);
+            this.painelArrastar.Location = new System.Drawing.Point(-8, 0);
+            this.painelArrastar.Name = "painelArrastar";
+            this.painelArrastar.Size = new System.Drawing.Size(567, 31);
+            this.painelArrastar.TabIndex = 42;
+            this.painelArrastar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.painelArrastar_MouseDown);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.White;
+            this.btnMinimizar.Location = new System.Drawing.Point(404, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(67, 23);
+            this.btnMinimizar.TabIndex = 0;
+            this.btnMinimizar.Text = "—";
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
+            this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(549, 656);
+            this.ClientSize = new System.Drawing.Size(549, 720);
+            this.Controls.Add(this.painelArrastar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox4);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Cliente";
@@ -736,11 +775,14 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.painelArrastar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -753,7 +795,6 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtRG;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtNum;
         private System.Windows.Forms.Label label6;
@@ -764,7 +805,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCidade;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCEP;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtLimiteCredito;
@@ -796,5 +836,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.MaskedTextBox txtTelefone;
         private System.Windows.Forms.MaskedTextBox txtCpf;
+        private System.Windows.Forms.MaskedTextBox txtRG;
+        private System.Windows.Forms.MaskedTextBox txtCEP;
+        private System.Windows.Forms.Panel painelArrastar;
+        private System.Windows.Forms.Button btnMinimizar;
     }
 }

@@ -9,11 +9,16 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using System.Runtime.InteropServices;
 namespace Ativ_Sistema_de_Vendas
 {
     public partial class FrmCliente : Form
     {
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         public FrmCliente()
         {
             InitializeComponent();
@@ -125,6 +130,114 @@ namespace Ativ_Sistema_de_Vendas
             else { 
                 return true; 
             }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
+            bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
+            bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
+            string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
+            //Validos
+            bool nomeVal = false;
+
+            //Bloco de validação do usuário
+            //Verifica se o nome é válido, sem caracteres e números
+            if (semNm(nome))
+            {
+                nomeVal = true;
+                //Nome valido prossiga
+            }
+            //Verifica se o número é válido
+            if (nmTelValido)
+            {
+                //Tell valido prossiga
+            }
+            if (validoCPF())
+            {
+                //CPF valido prossiga
+            }
+            if (limCredValido)
+            {
+                //Limite de crédito válido prossiga
+            }
+            //Validação RG
+            //if(){}
+
+            //Bloco de validação do endereço do usuário
+            //Validação do CEP
+            //if(){}
+            if (numResidenciaVal)
+            {
+                //Número da rêsidencia válido prossiga
+            }
+            if (semNm(cidade))
+            {
+                //cidade válida prossiga
+            }
+            if (semNm(bairro))
+            {
+                //bairro válido prossiga
+            }
+            if (semNm(rua))
+            {
+                //rua válida prossiga
+            }
+
+            if (nomeVal && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            {
+                //Pode realizar update e insert, pois os dados foram verificados e são válidos
+            }
+
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnFechar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void estadosTela()
+        {
+
+        }
+
+        private void btnFechar_Hover(object sender, EventArgs e)
+        {
+            BackColor = Color.Red;
+        }
+
+        private void painelArrastar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private void btnFechar_MouseEnter(object sender, EventArgs e)
+        {
+            btnFechar.BackColor = Color.Red;
+        }
+
+        private void btnFechar_MouseLeave(object sender, EventArgs e)
+        {
+            btnFechar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnMinimizar_MouseEnter(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.Red;
+        }
+
+        private void btnMinimizar_MouseLeave(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.FromArgb(78, 38, 102);
         }
     }
 }
