@@ -104,8 +104,27 @@ namespace Ativ_Sistema_de_Vendas
         }
         private bool semNm(string nome)
         {
-            nome = txtNome.Text;
-
+            bool nm = false, simb = false;
+            foreach(char i in nome)
+            {
+                //Verificando se tem numero
+                if (char.IsDigit(i))
+                {
+                    nm = true;
+                }
+                //Verificando se tem caractere especial
+                if (!char.IsLetterOrDigit(i) && i != ' ')
+                {
+                    simb = true;
+                }
+            }
+            if (nm || simb)
+            {
+                return false;
+            }
+            else { 
+                return true; 
+            }
         }
     }
 }
