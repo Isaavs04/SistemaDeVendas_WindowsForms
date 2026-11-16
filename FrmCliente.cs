@@ -341,5 +341,10 @@ namespace Ativ_Sistema_de_Vendas
             txtNum.Enabled = true;
             txtComplemento.Enabled = true;
         }
+
+        private void painelArrastar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

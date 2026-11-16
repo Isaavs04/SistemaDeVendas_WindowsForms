@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,10 @@ namespace Ativ_Sistema_de_Vendas
 {
     public partial class FrmProduto : Form
     {
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
         //indica que o usuario clicou em NOVO
         private bool Insercao = false;
         //indica que o usuario clicou em ALTERAR
@@ -432,6 +437,50 @@ namespace Ativ_Sistema_de_Vendas
 
         private void txtNomeProduto_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void painelArrastar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void painelArrastar_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(this.Handle, 0xA1, 0x2, 0);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.Red;
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnMinimizar_MouseEnter(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.Red;
+        }
+
+        private void btnMinimizar_MouseLeave(object sender, EventArgs e)
+        {
+            btnMinimizar.BackColor = Color.FromArgb(78, 38, 102);
         }
     }
 }
