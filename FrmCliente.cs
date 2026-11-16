@@ -31,7 +31,13 @@ namespace Ativ_Sistema_de_Vendas
 
         private void FrmCliente_Load(object sender, EventArgs e)
         {
-
+            //Habilitando e desabilitando botões, estado inicial da tela 
+            btnExcluir.Enabled = false;
+            btnConsultar.Enabled = true;
+            btnAlterar.Enabled = false;
+            btnApagar.Enabled = false;
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -201,15 +207,6 @@ namespace Ativ_Sistema_de_Vendas
             this.Close();
         }
 
-        private void estadosTela()
-        {
-            //Novo usuário, alterar informações
-
-            //Consultar
-
-            //Excluir
-        }
-
         private void btnFechar_Hover(object sender, EventArgs e)
         {
             BackColor = Color.Red;
@@ -268,6 +265,81 @@ namespace Ativ_Sistema_de_Vendas
             txtNum.Clear();
             txtComplemento.Clear();
         }
-        
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            txtNome.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtCpf.Enabled = false;
+            txtRG.Enabled = false;
+            txtLimiteCredito.Enabled = false;
+            txtCdCliente.Enabled = false;
+            cBoxUFRG.Enabled = false;
+            cBoxStatus.Enabled = false;
+            txtCEP.Enabled = false;
+            txtCidade.Enabled = false;
+            txtBairro.Enabled = false;
+            cBoxUFEndereco.Enabled = false;
+            txtRua.Enabled = false;
+            txtNum.Enabled = false;
+            txtComplemento.Enabled = false;
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            txtNome.Enabled = false;
+            txtTelefone.Enabled = false;
+            txtCpf.Enabled = false;
+            txtRG.Enabled = false;
+            txtLimiteCredito.Enabled = false;
+            txtCdCliente.Enabled = true;
+            cBoxUFRG.Enabled = false;
+            cBoxStatus.Enabled = false;
+            txtCEP.Enabled = false;
+            txtCidade.Enabled = false;
+            txtBairro.Enabled = false;
+            cBoxUFEndereco.Enabled = false;
+            txtRua.Enabled = false;
+            txtNum.Enabled = false;
+            txtComplemento.Enabled = false;
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            txtNome.Enabled = true;
+            txtTelefone.Enabled = true;
+            txtCpf.Enabled = true;
+            txtRG.Enabled = true;
+            txtLimiteCredito.Enabled = true;
+            txtCdCliente.Enabled = true;
+            cBoxUFRG.Enabled = true;
+            cBoxStatus.Enabled = true;
+            txtCEP.Enabled = true;
+            txtCidade.Enabled = true;
+            txtBairro.Enabled = true;
+            cBoxUFEndereco.Enabled = true;
+            txtRua.Enabled = true;
+            txtNum.Enabled = true;
+            txtComplemento.Enabled = true;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            txtNome.Enabled = true;
+            txtTelefone.Enabled = true;
+            txtCpf.Enabled = true;
+            txtRG.Enabled = true;
+            txtLimiteCredito.Enabled = true;
+            txtCdCliente.Enabled = true;
+            cBoxUFRG.Enabled = true;
+            cBoxStatus.Enabled = true;
+            txtCEP.Enabled = true;
+            txtCidade.Enabled = true;
+            txtBairro.Enabled = true;
+            cBoxUFEndereco.Enabled = true;
+            txtRua.Enabled = true;
+            txtNum.Enabled = true;
+            txtComplemento.Enabled = true;
+        }
     }
 }

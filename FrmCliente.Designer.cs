@@ -94,6 +94,7 @@
             // 
             // txtCdCliente
             // 
+            this.txtCdCliente.Enabled = false;
             this.txtCdCliente.Location = new System.Drawing.Point(278, 78);
             this.txtCdCliente.Name = "txtCdCliente";
             this.txtCdCliente.Size = new System.Drawing.Size(129, 20);
@@ -125,6 +126,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(31, 76);
             this.txtNome.MaxLength = 50;
             this.txtNome.Name = "txtNome";
@@ -169,6 +171,7 @@
             // 
             // txtNum
             // 
+            this.txtNum.Enabled = false;
             this.txtNum.Location = new System.Drawing.Point(213, 216);
             this.txtNum.MaxLength = 10;
             this.txtNum.Name = "txtNum";
@@ -201,6 +204,7 @@
             // 
             // txtComplemento
             // 
+            this.txtComplemento.Enabled = false;
             this.txtComplemento.Location = new System.Drawing.Point(292, 214);
             this.txtComplemento.MaxLength = 15;
             this.txtComplemento.Name = "txtComplemento";
@@ -221,6 +225,7 @@
             // 
             // txtBairro
             // 
+            this.txtBairro.Enabled = false;
             this.txtBairro.Location = new System.Drawing.Point(26, 216);
             this.txtBairro.MaxLength = 30;
             this.txtBairro.Name = "txtBairro";
@@ -241,6 +246,7 @@
             // 
             // txtCidade
             // 
+            this.txtCidade.Enabled = false;
             this.txtCidade.Location = new System.Drawing.Point(27, 148);
             this.txtCidade.MaxLength = 30;
             this.txtCidade.Name = "txtCidade";
@@ -285,6 +291,7 @@
             // 
             // txtLimiteCredito
             // 
+            this.txtLimiteCredito.Enabled = false;
             this.txtLimiteCredito.Location = new System.Drawing.Point(31, 284);
             this.txtLimiteCredito.MaxLength = 12;
             this.txtLimiteCredito.Name = "txtLimiteCredito";
@@ -306,6 +313,7 @@
             // cBoxUFRG
             // 
             this.cBoxUFRG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxUFRG.Enabled = false;
             this.cBoxUFRG.FormattingEnabled = true;
             this.cBoxUFRG.Items.AddRange(new object[] {
             "AC",
@@ -356,6 +364,7 @@
             // cBoxStatus
             // 
             this.cBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxStatus.Enabled = false;
             this.cBoxStatus.FormattingEnabled = true;
             this.cBoxStatus.Location = new System.Drawing.Point(278, 284);
             this.cBoxStatus.Name = "cBoxStatus";
@@ -398,6 +407,7 @@
             this.btnConsultar.TabIndex = 32;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnExcluir
             // 
@@ -412,6 +422,7 @@
             this.btnExcluir.TabIndex = 33;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnNovo
             // 
@@ -426,6 +437,7 @@
             this.btnNovo.TabIndex = 34;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSalvar
             // 
@@ -455,6 +467,7 @@
             this.btnAlterar.TabIndex = 36;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnFechar
             // 
@@ -476,6 +489,7 @@
             // cBoxUFEndereco
             // 
             this.cBoxUFEndereco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxUFEndereco.Enabled = false;
             this.cBoxUFEndereco.FormattingEnabled = true;
             this.cBoxUFEndereco.Items.AddRange(new object[] {
             "AC",
@@ -588,6 +602,7 @@
             // 
             // txtRua
             // 
+            this.txtRua.Enabled = false;
             this.txtRua.Location = new System.Drawing.Point(214, 148);
             this.txtRua.MaxLength = 50;
             this.txtRua.Name = "txtRua";
@@ -618,6 +633,7 @@
             // 
             // txtCEP
             // 
+            this.txtCEP.Enabled = false;
             this.txtCEP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.txtCEP.Location = new System.Drawing.Point(25, 90);
             this.txtCEP.Mask = "00000-000";
@@ -658,6 +674,7 @@
             // 
             // txtRG
             // 
+            this.txtRG.Enabled = false;
             this.txtRG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.txtRG.Location = new System.Drawing.Point(32, 229);
             this.txtRG.Mask = "00.000.000-0";
@@ -668,6 +685,7 @@
             // 
             // txtTelefone
             // 
+            this.txtTelefone.Enabled = false;
             this.txtTelefone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.txtTelefone.Location = new System.Drawing.Point(28, 131);
             this.txtTelefone.Mask = "(00)0000000-00";
@@ -678,6 +696,7 @@
             // 
             // txtCpf
             // 
+            this.txtCpf.Enabled = false;
             this.txtCpf.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.txtCpf.Location = new System.Drawing.Point(32, 182);
             this.txtCpf.Mask = "000.000.000-00";
