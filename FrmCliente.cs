@@ -71,7 +71,7 @@ namespace Ativ_Sistema_de_Vendas
                 resto = soma % 11;
                 if (resto >= 2)
                 {
-                    Pdig = resto - 11;
+                    Pdig = 11 - resto;
                 }
                 //Caso seja menor que 2 e maior ou igual a 0, "0" e "1" o digito é 0
                 else if (resto < 2 && resto >= 0)
@@ -81,6 +81,8 @@ namespace Ativ_Sistema_de_Vendas
 
                 //O bloco abaixo calcula o segundo caractere validador do CPF
                 num = 11;
+                soma = 0;
+                mult= 0;
                 for (int i = 0; i < 9; i++)
                 {
                     int digito = int.Parse(cpf[i].ToString());
@@ -92,7 +94,7 @@ namespace Ativ_Sistema_de_Vendas
                 resto = soma % 11;
                 if (resto >= 2)
                 {
-                    Sdig = resto - 11;
+                    Sdig = 11 - resto;
                 }
                 //Caso seja menor que 2 e maior ou igual a 0, "0" e "1" o digito é 0
                 else if (resto < 2 && resto >= 0)
