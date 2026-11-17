@@ -88,7 +88,7 @@ namespace Ativ_Sistema_de_Vendas
                     soma += mult;
                     num--;
                 }
-                soma = soma + (resto * 2);
+                soma = soma + (Pdig * 2);
                 resto = soma % 11;
                 if (resto >= 2)
                 {
@@ -143,8 +143,8 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
-            bool limCredValido = double.TryParse(txtRG.Text, out double limCred);
+            //Cria uma variavel booleana, tenta converter em double, se der para converter limCredValido passa a valer true e o valor o txtLimiteCredito.Text é armazenado na variabvel limcred, caso a conersão não possa ocorrer a variavel booleana ficará valendo false e o texto do txt não entra na variavel limcred
+            bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
@@ -169,7 +169,7 @@ namespace Ativ_Sistema_de_Vendas
                 }
 
                 //Verifica se o número é válido
-                if (!nmTelValido)
+                if (!nmTelValido())
                 {
                     txtTelefone.BackColor = Color.LightPink;
                     txtTelefone.ForeColor = Color.Red;
@@ -273,7 +273,7 @@ namespace Ativ_Sistema_de_Vendas
                     txtRua.ForeColor = Color.Black;
                 }
 
-                if (semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+                if (semNm(nome) && nmTelValido() && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
                 {
                     //Pode realizar update e insert, pois os dados foram verificados e são válidos
                     reiniciarTela();
@@ -543,12 +543,11 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnApagarErros_Click(object sender, EventArgs e)
         {
-            bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
             bool limCredValido = double.TryParse(txtRG.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
-            if (validarRG() && semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            if (validarRG() && semNm(nome) && nmTelValido() && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
             {
                 MessageBox.Show("Não há erros para apagar", "Interface sem erros", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -561,7 +560,7 @@ namespace Ativ_Sistema_de_Vendas
             }
 
             //Verifica se o número é válido
-            if (!nmTelValido)
+            if (!nmTelValido())
             {
                 txtTelefone.Clear();
                 txtTelefone.BackColor = Color.White;
@@ -630,6 +629,14 @@ namespace Ativ_Sistema_de_Vendas
         {
             string rg = txtRG.Text;
             if (rg != "000000000" && rg != "111111111" && rg != "222222222" && rg != "333333333" && rg != "444444444" && rg != "555555555" & rg != "666666666" && rg != "777777777" && rg != "888888888" & rg != "999999999")
+                return true;
+            else
+                return false;
+        }
+        private bool nmTelValido()
+        {
+            string num = txtTelefone.Text;
+            if (num != "00000000000" && num != "11111111111" && num != "22222222222" && num != "33333333333" && num != "44444444444" && num != "55555555555" & num != "66666666666" && num != "77777777777" && num != "88888888888" & num != "99999999999")
                 return true;
             else
                 return false;
