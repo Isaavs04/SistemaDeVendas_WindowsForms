@@ -60,7 +60,7 @@ Programadoras:
 4. Andrejs Kirma
 5. Erifqi Zetiawan
 6. Aldo Cervantes
-7. juicy_fish
+7. Kiranshastry
    
 ✦ Site: https://www.flaticon.com/br/
 
