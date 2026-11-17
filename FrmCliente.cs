@@ -4,8 +4,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+//Bibliotecas para validação do CEP
+using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -82,7 +85,7 @@ namespace Ativ_Sistema_de_Vendas
                 //O bloco abaixo calcula o segundo caractere validador do CPF
                 num = 11;
                 soma = 0;
-                mult= 0;
+                mult = 0;
                 for (int i = 0; i < 9; i++)
                 {
                     int digito = int.Parse(cpf[i].ToString());
@@ -444,7 +447,7 @@ namespace Ativ_Sistema_de_Vendas
             txtTelefone.Enabled = true;
             txtCpf.Enabled = true;
             txtRG.Enabled = true;
-            txtRG.Enabled = true;
+            txtLimiteCredito.Enabled = true;
             txtCdCliente.Enabled = true;
             cBoxUFRG.Enabled = true;
             cBoxStatus.Enabled = true;
@@ -543,13 +546,15 @@ namespace Ativ_Sistema_de_Vendas
             btnApagarErros.Visible = false;
         }
 
-        private void btnApagarErros_Click(object sender, EventArgs e)
+        private async void btnApagarErros_Click(object sender, EventArgs e)
         {
             bool limCredValido = double.TryParse(txtRG.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
+            //Espera o resultado da consulta do cep para pegar se ele é real ou não
+            bool enderecoValido = await validarCEP();
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
-            if (validarRG() && semNm(nome) && nmTelValido() && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            if (validarRG() &&  nmTelValido() && validoCPF() && semNm(nome) && enderecoValido &&  limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
             {
                 MessageBox.Show("Não há erros para apagar", "Interface sem erros", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -617,6 +622,12 @@ namespace Ativ_Sistema_de_Vendas
                 txtRua.BackColor = Color.White;
                 txtRua.ForeColor = Color.Black;
             }
+            if (!enderecoValido)
+            {
+                txtCEP.Clear();
+                txtCEP.BackColor = Color.White;
+                txtCEP.ForeColor = Color.Black;
+            }
 
             btnApagarTudo.Visible = false;
             btnApagarErros.Visible = false;
@@ -642,6 +653,70 @@ namespace Ativ_Sistema_de_Vendas
                 return true;
             else
                 return false;
+        }
+        private async Task<bool> validarCEP()
+        {
+            string cep = txtCEP.Text.Replace("-", "").Trim();
+            //URL do via cep com o cep que o usuário passou
+            string url = $"https://viacep.com.br/ws/{cep}/json/";
+                //Um CEP não tem menos ou mais que 8 números
+                if (cep.Length != 8)
+            {
+                return false;
+            }
+            try
+            {
+                //Declara o cliente
+                using (HttpClient client = new HttpClient())
+                {
+                    //Requere o endereço
+                    HttpResponseMessage resposta = await client.GetAsync(url);
+                    //Requisição bem sucedida
+                    if (resposta.IsSuccessStatusCode)
+                    {
+                        string jsonRespostas = await resposta.Content.ReadAsStringAsync();
+                        //Separa a resposta pela vírgula cada parte vira uma parte do array
+                        string[] endereco = jsonRespostas.Split(',');
+
+                        foreach (string e in endereco)
+                        {
+                            //Encontra as partes, as limpam e mandam para seus respectivos campos
+                            if (e.Contains("localidade"))
+                            {
+                                txtCidade.Text = e.Replace("localidade", "").Replace("\"", " ").Replace(":", " ").Trim();
+                                txtCidade.Enabled = false;
+                            }
+                            if (e.Contains("bairro"))
+                            {
+                                txtBairro.Text = e.Replace("bairro", "").Replace ("\"", " ").Replace(":", " ").Trim();
+                                txtBairro.Enabled = false;
+                            }
+                            if (e.Contains("logradouro"))
+                            {
+                                txtRua.Text = e.Replace("logradouro", "").Replace("\"", " ").Replace(":", " ").Trim();
+                                txtRua.Enabled = false;
+                            }
+                            if (e.Contains("uf"))
+                            {
+                                string ufLimpa = e.Replace("uf", "").Replace(":", "").Replace("\"", "").Trim();
+                                cBoxUFEndereco.SelectedItem = ufLimpa;
+                                cBoxUFEndereco.Enabled = false;
+                            }
+                        }
+                    }
+                }
+                    
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        //Quando o usuário deixa o campo ele verifica se ele está certo
+        private async void txtCEP_Leave(object sender, EventArgs e)
+        {
+            await validarCEP();
         }
     }
 }

@@ -674,6 +674,7 @@
             this.txtCEP.Size = new System.Drawing.Size(133, 20);
             this.txtCEP.TabIndex = 36;
             this.txtCEP.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // panel3
             // 
