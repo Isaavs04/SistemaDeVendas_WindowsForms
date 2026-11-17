@@ -45,6 +45,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtBuscarCategoria = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.painelArrastar = new System.Windows.Forms.Panel();
+            this.btnFecharCat = new System.Windows.Forms.Button();
+            this.btnMinimizar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -52,6 +55,7 @@
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.painelArrastar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -108,9 +112,9 @@
             this.panel2.Controls.Add(this.btnNovo);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel2.Location = new System.Drawing.Point(-1, 316);
+            this.panel2.Location = new System.Drawing.Point(-4, 371);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(543, 67);
+            this.panel2.Size = new System.Drawing.Size(543, 57);
             this.panel2.TabIndex = 40;
             // 
             // btnCancelar
@@ -222,7 +226,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Location = new System.Drawing.Point(33, -1);
+            this.panel3.Location = new System.Drawing.Point(30, 45);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(475, 312);
@@ -278,6 +282,51 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dados da Categoria";
             // 
+            // painelArrastar
+            // 
+            this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.painelArrastar.Controls.Add(this.btnFecharCat);
+            this.painelArrastar.Controls.Add(this.btnMinimizar);
+            this.painelArrastar.Location = new System.Drawing.Point(-4, -1);
+            this.painelArrastar.Name = "painelArrastar";
+            this.painelArrastar.Size = new System.Drawing.Size(543, 31);
+            this.painelArrastar.TabIndex = 44;
+            this.painelArrastar.Paint += new System.Windows.Forms.PaintEventHandler(this.painelArrastar_Paint);
+            this.painelArrastar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.painelArrastar_MouseDown);
+            // 
+            // btnFecharCat
+            // 
+            this.btnFecharCat.BackColor = System.Drawing.Color.Transparent;
+            this.btnFecharCat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFecharCat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnFecharCat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFecharCat.ForeColor = System.Drawing.Color.White;
+            this.btnFecharCat.Location = new System.Drawing.Point(482, 3);
+            this.btnFecharCat.Name = "btnFecharCat";
+            this.btnFecharCat.Size = new System.Drawing.Size(69, 23);
+            this.btnFecharCat.TabIndex = 37;
+            this.btnFecharCat.Text = "X";
+            this.btnFecharCat.UseVisualStyleBackColor = false;
+            this.btnFecharCat.Click += new System.EventHandler(this.btnFecharCat_Click);
+            this.btnFecharCat.MouseEnter += new System.EventHandler(this.btnFecharCat_MouseEnter);
+            this.btnFecharCat.MouseLeave += new System.EventHandler(this.btnFecharCat_MouseLeave);
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnMinimizar.ForeColor = System.Drawing.Color.White;
+            this.btnMinimizar.Location = new System.Drawing.Point(404, 3);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(67, 23);
+            this.btnMinimizar.TabIndex = 0;
+            this.btnMinimizar.Text = "—";
+            this.btnMinimizar.UseVisualStyleBackColor = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
+            this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -308,7 +357,7 @@
             this.pictureBox3.Location = new System.Drawing.Point(-4, -1);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(560, 384);
+            this.pictureBox3.Size = new System.Drawing.Size(541, 410);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 43;
             this.pictureBox3.TabStop = false;
@@ -317,11 +366,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 385);
+            this.ClientSize = new System.Drawing.Size(537, 420);
+            this.Controls.Add(this.painelArrastar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCategoria";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Categoria";
@@ -331,6 +381,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.painelArrastar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -360,5 +411,8 @@
         private System.Windows.Forms.TextBox txtBuscarCategoria;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel painelArrastar;
+        private System.Windows.Forms.Button btnFecharCat;
+        private System.Windows.Forms.Button btnMinimizar;
     }
 }

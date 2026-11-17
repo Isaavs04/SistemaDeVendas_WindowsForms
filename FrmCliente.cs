@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Runtime.InteropServices;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 namespace Ativ_Sistema_de_Vendas
 {
     public partial class FrmCliente : Form
@@ -145,12 +146,10 @@ namespace Ativ_Sistema_de_Vendas
             bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
-            //Validos
-            bool nomeVal = false;
 
             //Verifica se todos os itens foram preenchidos antes de testar se são válidos
             // && cBoxStatus.SelectedIndex != -1
-            if (txtNome.Text != "" && txtTelefone.Text != "" && txtCdCliente.Text != "" && txtCpf.Text != "" && txtRG.Text != "" && txtLimiteCredito.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
+            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" || txtCpf.Text != "" || txtRG.Text != "" || txtLimiteCredito.Text != "" || txtCEP.Text != "" || txtCidade.Text != "" || txtBairro.Text != "" || txtRua.Text != "" || txtNum.Text != "" || txtComplemento.Text != "" || cBoxUFEndereco.SelectedIndex != -1 || cBoxUFRG.SelectedIndex != -1)
             {
                 //Bloco de validação do usuário
                 //Verifica se o nome é válido, sem caracteres e números
@@ -261,7 +260,7 @@ namespace Ativ_Sistema_de_Vendas
                     txtRua.ForeColor = Color.Black;
                 }
 
-                if (nomeVal && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+                if (semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
                 {
                     //Pode realizar update e insert, pois os dados foram verificados e são válidos
                     reiniciarTela();
@@ -319,7 +318,15 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            reiniciarTela();
+            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" | txtCpf.Text != "" && txtRG.Text != "" && txtLimiteCredito.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
+            {
+                btnApagarErros.Visible = true;
+                btnApagarTudo.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Não há campos para limpar", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void reiniciarTela()
@@ -435,6 +442,7 @@ namespace Ativ_Sistema_de_Vendas
             txtComplemento.Enabled = true;
             btnBuscar.Visible = false;
             btnSalvar.Enabled = true;
+            btnApagar.Enabled = true;
         }
 
         private void btnExcluir_MouseEnter(object sender, EventArgs e)
@@ -505,6 +513,92 @@ namespace Ativ_Sistema_de_Vendas
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
             btnBuscar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void painelArrastar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnApagarTudo_Click(object sender, EventArgs e)
+        {
+            reiniciarTela();
+            btnApagarTudo.Visible = false;
+            btnApagarErros.Visible = false;
+        }
+
+        private void btnApagarErros_Click(object sender, EventArgs e)
+        {
+            bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
+            bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
+            bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
+            string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
+
+            if (semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            {
+                MessageBox.Show("Não há erros para apagar", "Interface sem erros", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            if (!semNm(nome))
+            {
+                txtNome.Clear();
+                txtNome.BackColor = Color.White;
+                txtNome.ForeColor = Color.Black;
+            }
+
+            //Verifica se o número é válido
+            if (!nmTelValido)
+            {
+                    txtTelefone.Clear();
+                txtTelefone.BackColor = Color.White;
+                txtTelefone.ForeColor = Color.Black;
+            }
+
+            if (!validoCPF())
+            {
+                txtCpf.Clear();
+                txtCpf.BackColor = Color.White;
+                txtCpf.ForeColor = Color.Black;
+            }
+
+            if (!limCredValido)
+            {
+                    txtLimiteCredito.Clear();
+                txtLimiteCredito.BackColor = Color.White;
+                txtLimiteCredito.ForeColor = Color.Black;
+            }
+
+
+            //Bloco de validação do endereço do usuário
+            //Validação do CEP
+            //if(){}
+            if (!numResidenciaVal)
+            {
+                    txtNum.Clear();
+                txtNum.BackColor = Color.White;
+                txtNum.ForeColor = Color.Black;
+            }
+            if (!semNm(cidade))
+            {
+                    txtCidade.Clear();
+                txtCidade.BackColor = Color.White;
+                txtCidade.ForeColor = Color.Black;
+            }
+            if (!semNm(bairro))
+            {
+                    txtBairro.Clear();
+                txtBairro.BackColor = Color.White;
+                txtBairro.ForeColor = Color.Black;
+            }
+            if (!semNm(rua))
+            {
+                    txtRua.Clear();
+                txtRua.BackColor = Color.White;
+                txtRua.ForeColor = Color.Black;
+            }
+
+            btnApagarTudo.Visible = false;
+            btnApagarErros.Visible = false;
         }
     }
 }
