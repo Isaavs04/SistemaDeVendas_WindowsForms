@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtCdCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,35 +62,40 @@
             this.btnFechar = new System.Windows.Forms.Button();
             this.cBoxUFEndereco = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnApagar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtRua = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtCEP = new System.Windows.Forms.MaskedTextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtRG = new System.Windows.Forms.MaskedTextBox();
             this.txtTelefone = new System.Windows.Forms.MaskedTextBox();
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.painelArrastar = new System.Windows.Forms.Panel();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnApagar = new System.Windows.Forms.Button();
+            this.erroCliente = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btnApagarErros = new System.Windows.Forms.Button();
+            this.btnApagarTudo = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.painelArrastar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.erroCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.painelArrastar.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCdCliente
@@ -408,6 +414,8 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.btnConsultar.MouseEnter += new System.EventHandler(this.btnConsultar_MouseEnter);
+            this.btnConsultar.MouseLeave += new System.EventHandler(this.btnConsultar_MouseLeave);
             // 
             // btnExcluir
             // 
@@ -423,6 +431,8 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.MouseEnter += new System.EventHandler(this.btnExcluir_MouseEnter);
+            this.btnExcluir.MouseLeave += new System.EventHandler(this.btnExcluir_MouseLeave);
             // 
             // btnNovo
             // 
@@ -438,6 +448,8 @@
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnNovo.MouseEnter += new System.EventHandler(this.btnNovo_MouseEnter);
+            this.btnNovo.MouseLeave += new System.EventHandler(this.btnNovo_MouseLeave);
             // 
             // btnSalvar
             // 
@@ -453,6 +465,8 @@
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.MouseEnter += new System.EventHandler(this.btnSalvar_MouseEnter);
+            this.btnSalvar.MouseLeave += new System.EventHandler(this.btnSalvar_MouseLeave);
             // 
             // btnAlterar
             // 
@@ -468,6 +482,8 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            this.btnAlterar.MouseEnter += new System.EventHandler(this.btnAlterar_MouseEnter);
+            this.btnAlterar.MouseLeave += new System.EventHandler(this.btnAlterar_MouseLeave);
             // 
             // btnFechar
             // 
@@ -537,10 +553,27 @@
             this.panel2.Controls.Add(this.btnNovo);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel2.Location = new System.Drawing.Point(-8, 655);
+            this.panel2.Location = new System.Drawing.Point(-6, 670);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(567, 53);
             this.panel2.TabIndex = 39;
+            // 
+            // btnApagar
+            // 
+            this.btnApagar.BackColor = System.Drawing.Color.Transparent;
+            this.btnApagar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApagar.ForeColor = System.Drawing.Color.White;
+            this.btnApagar.Location = new System.Drawing.Point(297, 3);
+            this.btnApagar.Name = "btnApagar";
+            this.btnApagar.Size = new System.Drawing.Size(75, 42);
+            this.btnApagar.TabIndex = 37;
+            this.btnApagar.Text = "Apagar";
+            this.btnApagar.UseVisualStyleBackColor = false;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            this.btnApagar.MouseEnter += new System.EventHandler(this.btnApagar_MouseEnter);
+            this.btnApagar.MouseLeave += new System.EventHandler(this.btnApagar_MouseLeave);
             // 
             // panel1
             // 
@@ -588,18 +621,6 @@
             this.panel6.Size = new System.Drawing.Size(372, 1);
             this.panel6.TabIndex = 35;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.pin_de_localizacao;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 26);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 34;
-            this.pictureBox2.TabStop = false;
-            // 
             // txtRua
             // 
             this.txtRua.Enabled = false;
@@ -646,6 +667,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.txtRG);
             this.panel3.Controls.Add(this.txtTelefone);
             this.panel3.Controls.Add(this.txtCpf);
@@ -671,6 +693,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(427, 317);
             this.panel3.TabIndex = 30;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(278, 104);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(129, 24);
+            this.btnBuscar.TabIndex = 38;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Visible = false;
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // txtRG
             // 
@@ -705,18 +744,6 @@
             this.txtCpf.TabIndex = 33;
             this.txtCpf.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.telefone;
-            this.pictureBox3.Location = new System.Drawing.Point(93, 111);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(12, 13);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
@@ -725,29 +752,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(372, 1);
             this.panel5.TabIndex = 31;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.do_utilizador;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 8);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 28);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.Gemini_Generated_Image_74cw4z74cw4z74cw;
-            this.pictureBox4.Location = new System.Drawing.Point(-6, 23);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(555, 642);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 41;
-            this.pictureBox4.TabStop = false;
             // 
             // painelArrastar
             // 
@@ -776,20 +780,82 @@
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
-            // btnApagar
+            // erroCliente
             // 
-            this.btnApagar.BackColor = System.Drawing.Color.Transparent;
-            this.btnApagar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApagar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApagar.ForeColor = System.Drawing.Color.White;
-            this.btnApagar.Location = new System.Drawing.Point(297, 3);
-            this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(75, 42);
-            this.btnApagar.TabIndex = 37;
-            this.btnApagar.Text = "Apagar";
-            this.btnApagar.UseVisualStyleBackColor = false;
-            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            this.erroCliente.ContainerControl = this;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.pin_de_localizacao;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 15);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 34;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.telefone;
+            this.pictureBox3.Location = new System.Drawing.Point(93, 111);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(12, 13);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.do_utilizador;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 8);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 28);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.Gemini_Generated_Image_74cw4z74cw4z74cw;
+            this.pictureBox4.Location = new System.Drawing.Point(-6, 23);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(563, 664);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 41;
+            this.pictureBox4.TabStop = false;
+            // 
+            // btnApagarErros
+            // 
+            this.btnApagarErros.BackColor = System.Drawing.Color.Plum;
+            this.btnApagarErros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagarErros.ForeColor = System.Drawing.Color.Indigo;
+            this.btnApagarErros.Location = new System.Drawing.Point(206, 649);
+            this.btnApagarErros.Name = "btnApagarErros";
+            this.btnApagarErros.Size = new System.Drawing.Size(118, 23);
+            this.btnApagarErros.TabIndex = 43;
+            this.btnApagarErros.Text = "Apagar Erros";
+            this.btnApagarErros.UseVisualStyleBackColor = false;
+            this.btnApagarErros.Visible = false;
+            // 
+            // btnApagarTudo
+            // 
+            this.btnApagarTudo.BackColor = System.Drawing.Color.Plum;
+            this.btnApagarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagarTudo.ForeColor = System.Drawing.Color.Indigo;
+            this.btnApagarTudo.Location = new System.Drawing.Point(324, 649);
+            this.btnApagarTudo.Name = "btnApagarTudo";
+            this.btnApagarTudo.Size = new System.Drawing.Size(103, 23);
+            this.btnApagarTudo.TabIndex = 44;
+            this.btnApagarTudo.Text = "Apagar Tudo";
+            this.btnApagarTudo.UseVisualStyleBackColor = false;
+            this.btnApagarTudo.Visible = false;
             // 
             // FrmCliente
             // 
@@ -797,6 +863,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(549, 720);
+            this.Controls.Add(this.btnApagarTudo);
+            this.Controls.Add(this.btnApagarErros);
             this.Controls.Add(this.painelArrastar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -810,15 +878,16 @@
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.painelArrastar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.erroCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.painelArrastar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -877,5 +946,9 @@
         private System.Windows.Forms.Panel painelArrastar;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ErrorProvider erroCliente;
+        private System.Windows.Forms.Button btnApagarTudo;
+        private System.Windows.Forms.Button btnApagarErros;
     }
 }

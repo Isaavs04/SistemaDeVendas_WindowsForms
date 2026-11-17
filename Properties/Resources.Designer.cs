@@ -103,6 +103,16 @@ namespace Ativ_Sistema_de_Vendas.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Error {
+            get {
+                object obj = ResourceManager.GetObject("Error", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Gemini_Generated_Image_74cw4z74cw4z74cw {
             get {
                 object obj = ResourceManager.GetObject("Gemini_Generated_Image_74cw4z74cw4z74cw", resourceCulture);

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Runtime.InteropServices;
+using System.Xml.Linq;
 namespace Ativ_Sistema_de_Vendas
 {
     public partial class FrmCliente : Form
@@ -147,54 +148,129 @@ namespace Ativ_Sistema_de_Vendas
             //Validos
             bool nomeVal = false;
 
-            //Bloco de validação do usuário
-            //Verifica se o nome é válido, sem caracteres e números
-            if (semNm(nome))
+            //Verifica se todos os itens foram preenchidos antes de testar se são válidos
+            // && cBoxStatus.SelectedIndex != -1
+            if (txtNome.Text != "" && txtTelefone.Text != "" && txtCdCliente.Text != "" && txtCpf.Text != "" && txtRG.Text != "" && txtLimiteCredito.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
             {
-                nomeVal = true;
-                //Nome valido prossiga
-            }
-            //Verifica se o número é válido
-            if (nmTelValido)
-            {
-                //Tell valido prossiga
-            }
-            if (validoCPF())
-            {
-                //CPF valido prossiga
-            }
-            if (limCredValido)
-            {
-                //Limite de crédito válido prossiga
-            }
-            //Validação RG
-            //if(){}
+                //Bloco de validação do usuário
+                //Verifica se o nome é válido, sem caracteres e números
+                if (!semNm(nome))
+                {
+                    txtNome.BackColor = Color.LightPink;
+                    txtNome.ForeColor = Color.Red;
+                    //Checa se já tem o asterisco do erro
+                    if (txtNome.Text.Contains('*'))
+                        txtNome.Text = "*" + txtNome.Text;
+                }
+                else
+                {
+                    txtNome.BackColor = Color.White;
+                    txtNome.ForeColor = Color.Black;
+                }
 
-            //Bloco de validação do endereço do usuário
-            //Validação do CEP
-            //if(){}
-            if (numResidenciaVal)
-            {
-                //Número da rêsidencia válido prossiga
-            }
-            if (semNm(cidade))
-            {
-                //cidade válida prossiga
-            }
-            if (semNm(bairro))
-            {
-                //bairro válido prossiga
-            }
-            if (semNm(rua))
-            {
-                //rua válida prossiga
-            }
+                //Verifica se o número é válido
+                if (!nmTelValido)
+                {
+                    txtTelefone.BackColor = Color.LightPink;
+                    txtTelefone.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtTelefone.Text = "*" + txtTelefone.Text;
+                }
+                else
+                {
+                    txtTelefone.BackColor = Color.White;
+                    txtTelefone.ForeColor = Color.Black;
+                }
 
-            if (nomeVal && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
-            {
-                //Pode realizar update e insert, pois os dados foram verificados e são válidos
-            }
+                if (!validoCPF())
+                {
+                    txtCpf.BackColor = Color.LightPink;
+                    txtCpf.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtCpf.Text = "*" + txtCpf.Text;
+                }
+                else
+                {
+                    txtCpf.BackColor = Color.White;
+                    txtCpf.ForeColor = Color.Black;
+                }
 
+                if (!limCredValido)
+                {
+                    txtLimiteCredito.BackColor = Color.LightPink;
+                    txtLimiteCredito.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtLimiteCredito.Text = "*" + txtLimiteCredito.Text;
+                }
+                else
+                {
+                    txtLimiteCredito.BackColor = Color.White;
+                    txtLimiteCredito.ForeColor = Color.Black;
+                }
+
+
+                //Bloco de validação do endereço do usuário
+                //Validação do CEP
+                //if(){}
+                if (!numResidenciaVal)
+                {
+                    txtNum.BackColor = Color.LightPink;
+                    txtNum.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtNum.Text = "*" + txtNum.Text;
+                }
+                else
+                {
+                    txtNum.BackColor = Color.White;
+                    txtNum.ForeColor = Color.Black;
+                }
+                if (!semNm(cidade))
+                {
+                    txtCidade.BackColor = Color.LightPink;
+                    txtCidade.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtCidade.Text = "*" + txtCidade.Text;
+                }
+                else
+                {
+                    txtCidade.BackColor = Color.White;
+                    txtCidade.ForeColor = Color.Black;
+                }
+                if (!semNm(bairro))
+                {
+                    txtBairro.BackColor = Color.LightPink;
+                    txtBairro.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtBairro.Text = "*" + txtBairro.Text;
+                }
+                else
+                {
+                    txtBairro.BackColor = Color.White;
+                    txtBairro.ForeColor = Color.Black;
+                }
+                if (!semNm(rua))
+                {
+                    txtRua.BackColor = Color.LightPink;
+                    txtRua.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtRua.Text = "*" + txtRua.Text;
+                }
+                else
+                {
+                    txtRua.BackColor = Color.White;
+                    txtRua.ForeColor = Color.Black;
+                }
+
+                if (nomeVal && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+                {
+                    //Pode realizar update e insert, pois os dados foram verificados e são válidos
+                    reiniciarTela();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Todos os campos devem ser preenchidos", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -283,6 +359,18 @@ namespace Ativ_Sistema_de_Vendas
             txtRua.Enabled = false;
             txtNum.Enabled = false;
             txtComplemento.Enabled = false;
+
+            DialogResult Apagar = MessageBox.Show("Deseja mesmo excluir esse cadastro?", "Exclusão de cadastro", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (Apagar == DialogResult.Yes)
+            {
+                //Coloque o código de exclusão aqui
+            }
+            else
+            {
+                MessageBox.Show("O cadastro não foi excluído","Exclusão de cadastro" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+                System.Media.SystemSounds.Hand.Play();
+            }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
@@ -302,6 +390,9 @@ namespace Ativ_Sistema_de_Vendas
             txtRua.Enabled = false;
             txtNum.Enabled = false;
             txtComplemento.Enabled = false;
+            btnBuscar.Visible = true;
+            btnSalvar.Enabled = false;
+
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
@@ -321,6 +412,8 @@ namespace Ativ_Sistema_de_Vendas
             txtRua.Enabled = true;
             txtNum.Enabled = true;
             txtComplemento.Enabled = true;
+            btnBuscar.Visible = false;
+            btnSalvar.Enabled = true;
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -340,6 +433,78 @@ namespace Ativ_Sistema_de_Vendas
             txtRua.Enabled = true;
             txtNum.Enabled = true;
             txtComplemento.Enabled = true;
+            btnBuscar.Visible = false;
+            btnSalvar.Enabled = true;
+        }
+
+        private void btnExcluir_MouseEnter(object sender, EventArgs e)
+        {
+            btnExcluir.BackColor = Color.Purple;
+        }
+
+        private void btnExcluir_MouseLeave(object sender, EventArgs e)
+        {
+            btnExcluir.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnConsultar_MouseEnter(object sender, EventArgs e)
+        {
+            btnConsultar.BackColor = Color.Purple;
+        }
+
+        private void btnConsultar_MouseLeave(object sender, EventArgs e)
+        {
+            btnConsultar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnAlterar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAlterar.BackColor = Color.Purple;
+        }
+
+        private void btnAlterar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAlterar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnApagar_MouseEnter(object sender, EventArgs e)
+        {
+            btnApagar.BackColor = Color.Purple;
+        }
+
+        private void btnApagar_MouseLeave(object sender, EventArgs e)
+        {
+            btnApagar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnNovo_MouseEnter(object sender, EventArgs e)
+        {
+            btnNovo.BackColor = Color.Purple;
+        }
+
+        private void btnNovo_MouseLeave(object sender, EventArgs e)
+        {
+            btnNovo.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnSalvar_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalvar.BackColor = Color.Purple;
+        }
+
+        private void btnSalvar_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalvar.BackColor = Color.FromArgb(78, 38, 102);
+        }
+
+        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            btnBuscar.BackColor = Color.Purple;
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            btnBuscar.BackColor = Color.FromArgb(78, 38, 102);
         }
     }
 }
