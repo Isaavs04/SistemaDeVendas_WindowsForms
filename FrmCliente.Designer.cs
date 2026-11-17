@@ -720,6 +720,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 

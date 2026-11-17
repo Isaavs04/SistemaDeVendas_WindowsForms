@@ -113,12 +113,12 @@ namespace Ativ_Sistema_de_Vendas
                     return false;
             }
             else
-            return false;
+                return false;
         }
         private bool semNm(string nome)
         {
             bool nm = false, simb = false;
-            foreach(char i in nome)
+            foreach (char i in nome)
             {
                 //Verificando se tem numero
                 if (char.IsDigit(i))
@@ -135,21 +135,22 @@ namespace Ativ_Sistema_de_Vendas
             {
                 return false;
             }
-            else { 
-                return true; 
+            else
+            {
+                return true;
             }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
-            bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
+            bool limCredValido = double.TryParse(txtRG.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
             //Verifica se todos os itens foram preenchidos antes de testar se são válidos
             // && cBoxStatus.SelectedIndex != -1
-            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" || txtCpf.Text != "" || txtRG.Text != "" || txtLimiteCredito.Text != "" || txtCEP.Text != "" || txtCidade.Text != "" || txtBairro.Text != "" || txtRua.Text != "" || txtNum.Text != "" || txtComplemento.Text != "" || cBoxUFEndereco.SelectedIndex != -1 || cBoxUFRG.SelectedIndex != -1)
+            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" || txtCpf.Text != "" || txtRG.Text != "" || txtRG.Text != "" || txtCEP.Text != "" || txtCidade.Text != "" || txtBairro.Text != "" || txtRua.Text != "" || txtNum.Text != "" || txtComplemento.Text != "" || cBoxUFEndereco.SelectedIndex != -1 || cBoxUFRG.SelectedIndex != -1)
             {
                 //Bloco de validação do usuário
                 //Verifica se o nome é válido, sem caracteres e números
@@ -196,15 +197,27 @@ namespace Ativ_Sistema_de_Vendas
 
                 if (!limCredValido)
                 {
-                    txtLimiteCredito.BackColor = Color.LightPink;
-                    txtLimiteCredito.ForeColor = Color.Red;
+                    txtRG.BackColor = Color.LightPink;
+                    txtRG.ForeColor = Color.Red;
                     if (txtNome.Text.Contains('*'))
-                        txtLimiteCredito.Text = "*" + txtLimiteCredito.Text;
+                        txtRG.Text = "*" + txtRG.Text;
                 }
                 else
                 {
-                    txtLimiteCredito.BackColor = Color.White;
-                    txtLimiteCredito.ForeColor = Color.Black;
+                    txtRG.BackColor = Color.White;
+                    txtRG.ForeColor = Color.Black;
+                }
+                if (!validarRG())
+                {
+                    txtRG.BackColor = Color.LightPink;
+                    txtRG.ForeColor = Color.Red;
+                    if (txtNome.Text.Contains('*'))
+                        txtRG.Text = "*" + txtRG.Text;
+                }
+                else
+                {
+                    txtRG.BackColor = Color.White;
+                    txtRG.ForeColor = Color.Black;
                 }
 
 
@@ -318,7 +331,7 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" | txtCpf.Text != "" && txtRG.Text != "" && txtLimiteCredito.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
+            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" | txtCpf.Text != "" && txtRG.Text != "" && txtRG.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
             {
                 btnApagarErros.Visible = true;
                 btnApagarTudo.Visible = true;
@@ -338,7 +351,7 @@ namespace Ativ_Sistema_de_Vendas
             txtCpf.Clear();
             txtRG.Clear();
             cBoxUFRG.SelectedIndex = -1;
-            txtLimiteCredito.Clear();
+            txtRG.Clear();
             cBoxStatus.SelectedIndex = -1;
             txtCEP.Clear();
             cBoxUFEndereco.SelectedIndex = -1;
@@ -355,7 +368,7 @@ namespace Ativ_Sistema_de_Vendas
             txtTelefone.Enabled = false;
             txtCpf.Enabled = false;
             txtRG.Enabled = false;
-            txtLimiteCredito.Enabled = false;
+            txtRG.Enabled = false;
             txtCdCliente.Enabled = false;
             cBoxUFRG.Enabled = false;
             cBoxStatus.Enabled = false;
@@ -375,7 +388,7 @@ namespace Ativ_Sistema_de_Vendas
             }
             else
             {
-                MessageBox.Show("O cadastro não foi excluído","Exclusão de cadastro" ,MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("O cadastro não foi excluído", "Exclusão de cadastro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 System.Media.SystemSounds.Hand.Play();
             }
         }
@@ -386,7 +399,7 @@ namespace Ativ_Sistema_de_Vendas
             txtTelefone.Enabled = false;
             txtCpf.Enabled = false;
             txtRG.Enabled = false;
-            txtLimiteCredito.Enabled = false;
+            txtRG.Enabled = false;
             txtCdCliente.Enabled = true;
             cBoxUFRG.Enabled = false;
             cBoxStatus.Enabled = false;
@@ -408,7 +421,7 @@ namespace Ativ_Sistema_de_Vendas
             txtTelefone.Enabled = true;
             txtCpf.Enabled = true;
             txtRG.Enabled = true;
-            txtLimiteCredito.Enabled = true;
+            txtRG.Enabled = true;
             txtCdCliente.Enabled = true;
             cBoxUFRG.Enabled = true;
             cBoxStatus.Enabled = true;
@@ -429,7 +442,7 @@ namespace Ativ_Sistema_de_Vendas
             txtTelefone.Enabled = true;
             txtCpf.Enabled = true;
             txtRG.Enabled = true;
-            txtLimiteCredito.Enabled = true;
+            txtRG.Enabled = true;
             txtCdCliente.Enabled = true;
             cBoxUFRG.Enabled = true;
             cBoxStatus.Enabled = true;
@@ -443,6 +456,7 @@ namespace Ativ_Sistema_de_Vendas
             btnBuscar.Visible = false;
             btnSalvar.Enabled = true;
             btnApagar.Enabled = true;
+            reiniciarTela();
         }
 
         private void btnExcluir_MouseEnter(object sender, EventArgs e)
@@ -530,11 +544,11 @@ namespace Ativ_Sistema_de_Vendas
         private void btnApagarErros_Click(object sender, EventArgs e)
         {
             bool nmTelValido = int.TryParse(txtTelefone.Text, out int telefone);
-            bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
+            bool limCredValido = double.TryParse(txtRG.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
-            if (semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            if (validarRG() && semNm(nome) && nmTelValido && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
             {
                 MessageBox.Show("Não há erros para apagar", "Interface sem erros", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -549,7 +563,7 @@ namespace Ativ_Sistema_de_Vendas
             //Verifica se o número é válido
             if (!nmTelValido)
             {
-                    txtTelefone.Clear();
+                txtTelefone.Clear();
                 txtTelefone.BackColor = Color.White;
                 txtTelefone.ForeColor = Color.Black;
             }
@@ -563,9 +577,15 @@ namespace Ativ_Sistema_de_Vendas
 
             if (!limCredValido)
             {
-                    txtLimiteCredito.Clear();
-                txtLimiteCredito.BackColor = Color.White;
-                txtLimiteCredito.ForeColor = Color.Black;
+                txtRG.Clear();
+                txtRG.BackColor = Color.White;
+                txtRG.ForeColor = Color.Black;
+            }
+            if (!validarRG())
+            {
+                txtRG.Clear();
+                txtRG.BackColor = Color.White;
+                txtRG.ForeColor = Color.Black;
             }
 
 
@@ -574,31 +594,45 @@ namespace Ativ_Sistema_de_Vendas
             //if(){}
             if (!numResidenciaVal)
             {
-                    txtNum.Clear();
+                txtNum.Clear();
                 txtNum.BackColor = Color.White;
                 txtNum.ForeColor = Color.Black;
             }
             if (!semNm(cidade))
             {
-                    txtCidade.Clear();
+                txtCidade.Clear();
                 txtCidade.BackColor = Color.White;
                 txtCidade.ForeColor = Color.Black;
             }
             if (!semNm(bairro))
             {
-                    txtBairro.Clear();
+                txtBairro.Clear();
                 txtBairro.BackColor = Color.White;
                 txtBairro.ForeColor = Color.Black;
             }
             if (!semNm(rua))
             {
-                    txtRua.Clear();
+                txtRua.Clear();
                 txtRua.BackColor = Color.White;
                 txtRua.ForeColor = Color.Black;
             }
 
             btnApagarTudo.Visible = false;
             btnApagarErros.Visible = false;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+        }
+        private bool validarRG()
+        {
+            string rg = txtRG.Text;
+            if (rg != "000000000" && rg != "111111111" && rg != "222222222" && rg != "333333333" && rg != "444444444" && rg != "555555555" & rg != "666666666" && rg != "777777777" && rg != "888888888" & rg != "999999999")
+                return true;
+            else
+                return false;
         }
     }
 }
