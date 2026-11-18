@@ -48,14 +48,18 @@
             this.painelArrastar = new System.Windows.Forms.Panel();
             this.btnFecharCat = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.painelArrastar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -124,13 +128,15 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(190, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(179, 3);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 43);
+            this.btnCancelar.Size = new System.Drawing.Size(90, 43);
             this.btnCancelar.TabIndex = 38;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnFechar
             // 
@@ -139,12 +145,14 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(11, 3);
+            this.btnFechar.Location = new System.Drawing.Point(-2, 3);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(75, 43);
+            this.btnFechar.Size = new System.Drawing.Size(90, 43);
             this.btnFechar.TabIndex = 37;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = false;
+            this.btnFechar.MouseEnter += new System.EventHandler(this.btnFechar_MouseEnter);
+            this.btnFechar.MouseLeave += new System.EventHandler(this.btnFechar_MouseLeave);
             // 
             // btnExcluir
             // 
@@ -153,13 +161,15 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(99, 3);
+            this.btnExcluir.Location = new System.Drawing.Point(90, 3);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 43);
+            this.btnExcluir.Size = new System.Drawing.Size(90, 43);
             this.btnExcluir.TabIndex = 33;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.MouseEnter += new System.EventHandler(this.btnExcluir_MouseEnter);
+            this.btnExcluir.MouseLeave += new System.EventHandler(this.btnExcluir_MouseLeave);
             // 
             // btnAlterar
             // 
@@ -168,13 +178,15 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlterar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(275, 3);
+            this.btnAlterar.Location = new System.Drawing.Point(267, 3);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 43);
+            this.btnAlterar.Size = new System.Drawing.Size(90, 43);
             this.btnAlterar.TabIndex = 36;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            this.btnAlterar.MouseEnter += new System.EventHandler(this.btnAlterar_MouseEnter);
+            this.btnAlterar.MouseLeave += new System.EventHandler(this.btnAlterar_MouseLeave);
             // 
             // btnNovo
             // 
@@ -183,13 +195,15 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(363, 3);
+            this.btnNovo.Location = new System.Drawing.Point(355, 3);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 43);
+            this.btnNovo.Size = new System.Drawing.Size(90, 43);
             this.btnNovo.TabIndex = 34;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnNovo.MouseEnter += new System.EventHandler(this.btnNovo_MouseEnter);
+            this.btnNovo.MouseLeave += new System.EventHandler(this.btnNovo_MouseLeave);
             // 
             // btnSalvar
             // 
@@ -198,13 +212,15 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(451, 3);
+            this.btnSalvar.Location = new System.Drawing.Point(446, 3);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 43);
+            this.btnSalvar.Size = new System.Drawing.Size(90, 43);
             this.btnSalvar.TabIndex = 35;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.MouseEnter += new System.EventHandler(this.btnSalvar_MouseEnter);
+            this.btnSalvar.MouseLeave += new System.EventHandler(this.btnSalvar_MouseLeave);
             // 
             // btnConsultar
             // 
@@ -220,6 +236,8 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.btnConsultar.MouseEnter += new System.EventHandler(this.btnConsultar_MouseEnter);
+            this.btnConsultar.MouseLeave += new System.EventHandler(this.btnConsultar_MouseLeave);
             // 
             // panel3
             // 
@@ -285,6 +303,8 @@
             // painelArrastar
             // 
             this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.painelArrastar.Controls.Add(this.pictureBox4);
+            this.painelArrastar.Controls.Add(this.label4);
             this.painelArrastar.Controls.Add(this.btnFecharCat);
             this.painelArrastar.Controls.Add(this.btnMinimizar);
             this.painelArrastar.Location = new System.Drawing.Point(-4, -1);
@@ -301,9 +321,9 @@
             this.btnFecharCat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFecharCat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFecharCat.ForeColor = System.Drawing.Color.White;
-            this.btnFecharCat.Location = new System.Drawing.Point(482, 3);
+            this.btnFecharCat.Location = new System.Drawing.Point(471, 3);
             this.btnFecharCat.Name = "btnFecharCat";
-            this.btnFecharCat.Size = new System.Drawing.Size(69, 23);
+            this.btnFecharCat.Size = new System.Drawing.Size(69, 28);
             this.btnFecharCat.TabIndex = 37;
             this.btnFecharCat.Text = "X";
             this.btnFecharCat.UseVisualStyleBackColor = false;
@@ -317,15 +337,36 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(404, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(406, 3);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(67, 23);
+            this.btnMinimizar.Size = new System.Drawing.Size(67, 33);
             this.btnMinimizar.TabIndex = 0;
             this.btnMinimizar.Text = "—";
             this.btnMinimizar.UseVisualStyleBackColor = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(36, 8);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(187, 15);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Formulário Cadastro de Categorias";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.catalogo;
+            this.pictureBox4.Location = new System.Drawing.Point(11, 3);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(22, 23);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 39;
+            this.pictureBox4.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -362,11 +403,20 @@
             this.pictureBox3.TabIndex = 43;
             this.pictureBox3.TabStop = false;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(24)))), ((int)(((byte)(74)))));
+            this.panel8.Location = new System.Drawing.Point(-4, 30);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(553, 8);
+            this.panel8.TabIndex = 46;
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 420);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.painelArrastar);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -382,6 +432,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.painelArrastar.ResumeLayout(false);
+            this.painelArrastar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -414,5 +466,8 @@
         private System.Windows.Forms.Panel painelArrastar;
         private System.Windows.Forms.Button btnFecharCat;
         private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel8;
     }
 }

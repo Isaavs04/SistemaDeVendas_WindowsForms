@@ -400,22 +400,22 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnMinimizar_MouseEnter(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.Red;
+            btnMinimizar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnMinimizar_MouseLeave(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.FromArgb(78, 38, 102);
+            btnMinimizar.BackColor = Color.Transparent;
         }
 
         private void btnFecharCat_MouseEnter(object sender, EventArgs e)
         {
-            btnFecharCat.BackColor = Color.Red;
+            btnFecharCat.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnFecharCat_MouseLeave(object sender, EventArgs e)
         {
-            btnFecharCat.BackColor = Color.FromArgb(78, 38, 102);
+            btnFecharCat.BackColor = Color.Transparent;
         }
         private bool semNm(string nome)
         {
@@ -441,6 +441,77 @@ namespace Ativ_Sistema_de_Vendas
             {
                 return true;
             }
+        }
+
+        private void btnFechar_MouseLeave(object sender, EventArgs e)
+        {
+
+            btnFechar.BackColor = Color.Transparent;
+        }
+
+        private void btnExcluir_MouseEnter(object sender, EventArgs e)
+        {
+            btnExcluir.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnExcluir_MouseLeave(object sender, EventArgs e)
+        {
+            btnExcluir.BackColor = Color.Transparent;
+        }
+
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
+        {
+            btnCancelar.BackColor = Color.Transparent;
+        }
+
+        private void btnAlterar_MouseEnter(object sender, EventArgs e)
+        {
+            btnAlterar.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnAlterar_MouseLeave(object sender, EventArgs e)
+        {
+            btnAlterar.BackColor = Color.Transparent;
+        }
+
+        private void btnNovo_MouseEnter(object sender, EventArgs e)
+        {
+            btnNovo.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnNovo_MouseLeave(object sender, EventArgs e)
+        {
+            btnNovo.BackColor = Color.Transparent;
+        }
+
+        private void btnSalvar_MouseEnter(object sender, EventArgs e)
+        {
+            btnSalvar.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnSalvar_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalvar.BackColor = Color.Transparent;
+        }
+
+        private void btnFechar_MouseEnter(object sender, EventArgs e)
+        {
+            btnFechar.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnConsultar_MouseEnter(object sender, EventArgs e)
+        {
+            btnConsultar.BackColor = Color.FromArgb(122, 75, 150);
+        }
+
+        private void btnConsultar_MouseLeave(object sender, EventArgs e)
+        {
+            btnConsultar.BackColor = Color.FromArgb(78, 38, 102);
         }
     }
 }
