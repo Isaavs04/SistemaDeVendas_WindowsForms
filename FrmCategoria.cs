@@ -29,12 +29,12 @@ namespace Ativ_Sistema_de_Vendas
         //Guarda o nome da categoria caso a alteração seja cancelada
         private string nomeCategoriaOriginal;
         public FrmCategoria()
-    {
-        InitializeComponent();
-        configurarFormulario();
+        {
+            InitializeComponent();
+            configurarFormulario();
 
-        btnFechar.Click += btnFechar_Click;
-    }
+            btnFechar.Click += btnFechar_Click;
+        }
 
         private void configurarFormulario()
         {
@@ -61,11 +61,12 @@ namespace Ativ_Sistema_de_Vendas
 
         public void verificaCampos()
         {
-            if(!string.IsNullOrWhiteSpace(txtCdCategoria.Text) && !string.IsNullOrWhiteSpace(txtNomeCategoria.Text))
+            if (!string.IsNullOrWhiteSpace(txtCdCategoria.Text) && !string.IsNullOrWhiteSpace(txtNomeCategoria.Text))
             {
-                
-                if(!int.TryParse(txtCdCategoria.Text.Trim(), out int cdCategoria)){
-                    throw new Exception("Apenas números são aceitos para o código. Tente Novamente!"); 
+
+                if (!int.TryParse(txtCdCategoria.Text.Trim(), out int cdCategoria))
+                {
+                    throw new Exception("Apenas números são aceitos para o código. Tente Novamente!");
                 }
 
             }
@@ -80,16 +81,22 @@ namespace Ativ_Sistema_de_Vendas
         {
             try
             {
-                if(!Insercao && !Alteracao)
+                if (!Insercao && !Alteracao)
                 {
                     throw new Exception("Escolha primeiro qual operação que deseja executar!");
+                }
+                //Verifica se não existem caracteres especias e númericos
+                string nomeCategoria = txtNomeCategoria.Text;
+                if (!semNm(nomeCategoria))
+                {
+                    throw new Exception("O nome da categoria não deve conter números e caracteres especiais");
                 }
 
                 verificaCampos();
 
                 if (Insercao)
                 {
-                  salvarCategoria();
+                    salvarCategoria();
                 }
                 else if (Alteracao)
                 {
@@ -105,7 +112,7 @@ namespace Ativ_Sistema_de_Vendas
                 txtCdCategoria.Clear();
                 txtNomeCategoria.Clear();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -137,7 +144,7 @@ namespace Ativ_Sistema_de_Vendas
                 string sql = @"INSERT INTO Categoria(CdCategoria,NomeCategoria)
                                 VALUES (@CdCategoria, @NomeCategoria)";
 
-                using(SqlCommand cmd = new SqlCommand(sql, conn))
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     cmd.Parameters.AddWithValue("@CdCategoria", int.Parse(txtCdCategoria.Text));
 
@@ -154,7 +161,8 @@ namespace Ativ_Sistema_de_Vendas
         //UPDATE
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 if (!categoriaCarregada)
                 {
                     throw new Exception("Consulte uma categoria antes de alterar!");
@@ -173,7 +181,7 @@ namespace Ativ_Sistema_de_Vendas
             {
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-}
+        }
 
         private void alterarCategoria()
         {
@@ -194,7 +202,7 @@ namespace Ativ_Sistema_de_Vendas
                         txtNomeCategoria.Text.Trim());
 
                     //retorna a quantidade de linha afetadas pelo comando
-                    int linhasAfetadas = cmd.ExecuteNonQuery(); 
+                    int linhasAfetadas = cmd.ExecuteNonQuery();
 
                     if (linhasAfetadas == 0)
                     {
@@ -213,7 +221,7 @@ namespace Ativ_Sistema_de_Vendas
             {
                 consultarCategorias();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -229,7 +237,7 @@ namespace Ativ_Sistema_de_Vendas
 
             Conexao conexao = new Conexao();
 
-            using(SqlConnection conn = conexao.conectar())
+            using (SqlConnection conn = conexao.conectar())
             {
                 conn.Open();
 
@@ -306,12 +314,12 @@ namespace Ativ_Sistema_de_Vendas
             { //erro do sql que indica uma restrição de integridade
                 if (ex.Number == 547)
                 {
-                    MessageBox.Show("Não é possível excluir esta categoria, pois existem produtos vinculados a ela.", 
+                    MessageBox.Show("Não é possível excluir esta categoria, pois existem produtos vinculados a ela.",
                         "Exclusão não permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                  MessageBox.Show("Erro ao excluir a categoria: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Erro ao excluir a categoria: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -408,6 +416,31 @@ namespace Ativ_Sistema_de_Vendas
         private void btnFecharCat_MouseLeave(object sender, EventArgs e)
         {
             btnFecharCat.BackColor = Color.FromArgb(78, 38, 102);
+        }
+        private bool semNm(string nome)
+        {
+            bool nm = false, simb = false;
+            foreach (char i in nome)
+            {
+                //Verificando se tem numero
+                if (char.IsDigit(i))
+                {
+                    nm = true;
+                }
+                //Verificando se tem caractere especial
+                if (!char.IsLetterOrDigit(i) && i != ' ')
+                {
+                    simb = true;
+                }
+            }
+            if (nm || simb)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
