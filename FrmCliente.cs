@@ -351,7 +351,7 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" | txtCpf.Text != "" && txtRG.Text != "" && txtRG.Text != "" && txtCEP.Text != "" && txtCidade.Text != "" && txtBairro.Text != "" && txtRua.Text != "" && txtNum.Text != "" && txtComplemento.Text != "" && cBoxUFEndereco.SelectedIndex != -1 && cBoxUFRG.SelectedIndex != -1)
+            if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" || txtCpf.Text != "" || txtRG.Text != "" || txtRG.Text != "" || txtCEP.Text != "" && txtCidade.Text != "" || txtBairro.Text != "" || txtRua.Text != "" || txtNum.Text != "" || txtComplemento.Text != "" || cBoxUFEndereco.SelectedIndex != -1 || cBoxUFRG.SelectedIndex != -1)
             {
                 btnApagarErros.Visible = true;
                 btnApagarTudo.Visible = true;
