@@ -555,7 +555,7 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.panel2.Location = new System.Drawing.Point(-6, 670);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(555, 53);
+            this.panel2.Size = new System.Drawing.Size(563, 53);
             this.panel2.TabIndex = 39;
             // 
             // btnApagar

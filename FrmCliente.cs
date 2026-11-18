@@ -686,22 +686,30 @@ namespace Ativ_Sistema_de_Vendas
                                 txtCidade.Text = e.Replace("localidade", "").Replace("\"", " ").Replace(":", " ").Trim();
                                 txtCidade.Enabled = false;
                             }
+                            else
+                                txtCidade.Enabled = true;
                             if (e.Contains("bairro"))
                             {
                                 txtBairro.Text = e.Replace("bairro", "").Replace ("\"", " ").Replace(":", " ").Trim();
                                 txtBairro.Enabled = false;
                             }
+                            else
+                                txtBairro.Enabled = true;
                             if (e.Contains("logradouro"))
                             {
                                 txtRua.Text = e.Replace("logradouro", "").Replace("\"", " ").Replace(":", " ").Trim();
                                 txtRua.Enabled = false;
                             }
+                            else
+                                txtRua.Enabled = true;
                             if (e.Contains("uf"))
                             {
                                 string ufLimpa = e.Replace("uf", "").Replace(":", "").Replace("\"", "").Trim();
                                 cBoxUFEndereco.SelectedItem = ufLimpa;
                                 cBoxUFEndereco.Enabled = false;
                             }
+                            else
+                                cBoxUFEndereco.Enabled = true;
                         }
                     }
                 }

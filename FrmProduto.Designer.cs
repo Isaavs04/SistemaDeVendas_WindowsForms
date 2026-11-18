@@ -34,8 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNomeProduto = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -49,17 +47,19 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtBuscarProduto = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
             this.painelArrastar = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.cBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.painelArrastar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.painelArrastar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,30 +121,6 @@
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 8;
             this.label3.Text = "Nome";
-            // 
-            // cBoxCategoria
-            // 
-            this.cBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCategoria.FormattingEnabled = true;
-            this.cBoxCategoria.Items.AddRange(new object[] {
-            "teste1",
-            "teste2",
-            "teste3"});
-            this.cBoxCategoria.Location = new System.Drawing.Point(265, 216);
-            this.cBoxCategoria.Name = "cBoxCategoria";
-            this.cBoxCategoria.Size = new System.Drawing.Size(126, 21);
-            this.cBoxCategoria.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 10.8F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(263, 187);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 18);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Categoria";
             // 
             // panel2
             // 
@@ -331,6 +307,17 @@
             this.panel5.Size = new System.Drawing.Size(364, 1);
             this.panel5.TabIndex = 45;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.caixa;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 134);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 44;
+            this.pictureBox1.TabStop = false;
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -347,9 +334,9 @@
             this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.painelArrastar.Controls.Add(this.button1);
             this.painelArrastar.Controls.Add(this.btnMinimizar);
-            this.painelArrastar.Location = new System.Drawing.Point(1, 1);
+            this.painelArrastar.Location = new System.Drawing.Point(-7, -3);
             this.painelArrastar.Name = "painelArrastar";
-            this.painelArrastar.Size = new System.Drawing.Size(543, 31);
+            this.painelArrastar.Size = new System.Drawing.Size(551, 35);
             this.painelArrastar.TabIndex = 43;
             this.painelArrastar.Paint += new System.Windows.Forms.PaintEventHandler(this.painelArrastar_Paint);
             this.painelArrastar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.painelArrastar_MouseDown);
@@ -387,17 +374,6 @@
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.caixa;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 134);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 26);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 44;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.Gemini_Generated_Image_74cw4z74cw4z74cw;
@@ -408,6 +384,30 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 43;
             this.pictureBox2.TabStop = false;
+            // 
+            // cBoxCategoria
+            // 
+            this.cBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCategoria.FormattingEnabled = true;
+            this.cBoxCategoria.Items.AddRange(new object[] {
+            "teste1",
+            "teste2",
+            "teste3"});
+            this.cBoxCategoria.Location = new System.Drawing.Point(265, 216);
+            this.cBoxCategoria.Name = "cBoxCategoria";
+            this.cBoxCategoria.Size = new System.Drawing.Size(126, 21);
+            this.cBoxCategoria.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Constantia", 10.8F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.label4.Location = new System.Drawing.Point(263, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 18);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Categoria";
             // 
             // FrmProduto
             // 
@@ -428,8 +428,8 @@
             this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.painelArrastar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.painelArrastar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -443,8 +443,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cBoxCategoria;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnExcluir;
@@ -464,5 +462,7 @@
         private System.Windows.Forms.Panel painelArrastar;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMinimizar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cBoxCategoria;
     }
 }

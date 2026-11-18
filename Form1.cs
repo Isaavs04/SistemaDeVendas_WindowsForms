@@ -88,5 +88,12 @@ namespace Ativ_Sistema_de_Vendas
         {
             this.Close();
         }
+
+        private void realizarVendasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frnGerenciarCompras venda = new frnGerenciarCompras();
+            venda.MdiParent = this;
+            venda.Show();
+        }
     }
 }
