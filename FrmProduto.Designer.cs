@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
@@ -49,17 +48,20 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cBoxCategoria = new System.Windows.Forms.ComboBox();
             this.painelArrastar = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.painelArrastar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,15 +129,14 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.btnCancelar);
-            this.panel2.Controls.Add(this.btnFechar);
             this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Controls.Add(this.btnAlterar);
             this.panel2.Controls.Add(this.btnNovo);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel2.Location = new System.Drawing.Point(1, 415);
+            this.panel2.Location = new System.Drawing.Point(-7, 415);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(543, 60);
+            this.panel2.Size = new System.Drawing.Size(551, 60);
             this.panel2.TabIndex = 41;
             // 
             // btnCancelar
@@ -145,28 +146,15 @@
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(187, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(117, -2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 43);
+            this.btnCancelar.Size = new System.Drawing.Size(110, 55);
             this.btnCancelar.TabIndex = 39;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnFechar
-            // 
-            this.btnFechar.BackColor = System.Drawing.Color.Transparent;
-            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(6, 6);
-            this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(75, 41);
-            this.btnFechar.TabIndex = 37;
-            this.btnFechar.Text = "Fechar";
-            this.btnFechar.UseVisualStyleBackColor = false;
-            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnExcluir
             // 
@@ -175,13 +163,15 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(98, 5);
+            this.btnExcluir.Location = new System.Drawing.Point(6, -2);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 41);
+            this.btnExcluir.Size = new System.Drawing.Size(110, 55);
             this.btnExcluir.TabIndex = 33;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            this.btnExcluir.MouseEnter += new System.EventHandler(this.btnExcluir_MouseEnter);
+            this.btnExcluir.MouseLeave += new System.EventHandler(this.btnExcluir_MouseLeave);
             // 
             // btnAlterar
             // 
@@ -190,13 +180,15 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlterar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(274, 5);
+            this.btnAlterar.Location = new System.Drawing.Point(223, 0);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 41);
+            this.btnAlterar.Size = new System.Drawing.Size(110, 53);
             this.btnAlterar.TabIndex = 36;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            this.btnAlterar.MouseEnter += new System.EventHandler(this.btnAlterar_MouseEnter);
+            this.btnAlterar.MouseLeave += new System.EventHandler(this.btnAlterar_MouseLeave);
             // 
             // btnNovo
             // 
@@ -205,13 +197,15 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.Transparent;
-            this.btnNovo.Location = new System.Drawing.Point(362, 5);
+            this.btnNovo.Location = new System.Drawing.Point(332, 0);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 41);
+            this.btnNovo.Size = new System.Drawing.Size(110, 53);
             this.btnNovo.TabIndex = 34;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
             this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
+            this.btnNovo.MouseEnter += new System.EventHandler(this.btnNovo_MouseEnter);
+            this.btnNovo.MouseLeave += new System.EventHandler(this.btnNovo_MouseLeave);
             // 
             // btnSalvar
             // 
@@ -220,13 +214,15 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(450, 5);
+            this.btnSalvar.Location = new System.Drawing.Point(439, 0);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 41);
+            this.btnSalvar.Size = new System.Drawing.Size(110, 53);
             this.btnSalvar.TabIndex = 35;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.btnSalvar.MouseEnter += new System.EventHandler(this.btnSalvar_MouseEnter);
+            this.btnSalvar.MouseLeave += new System.EventHandler(this.btnSalvar_MouseLeave);
             // 
             // panel1
             // 
@@ -288,6 +284,8 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            this.btnConsultar.MouseEnter += new System.EventHandler(this.btnConsultar_MouseEnter);
+            this.btnConsultar.MouseLeave += new System.EventHandler(this.btnConsultar_MouseLeave);
             // 
             // txtBuscarProduto
             // 
@@ -329,9 +327,35 @@
             this.label15.TabIndex = 43;
             this.label15.Text = "Cadastro de Produto";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Constantia", 10.8F);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.label4.Location = new System.Drawing.Point(263, 187);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(70, 18);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Categoria";
+            // 
+            // cBoxCategoria
+            // 
+            this.cBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBoxCategoria.FormattingEnabled = true;
+            this.cBoxCategoria.Items.AddRange(new object[] {
+            "teste1",
+            "teste2",
+            "teste3"});
+            this.cBoxCategoria.Location = new System.Drawing.Point(265, 216);
+            this.cBoxCategoria.Name = "cBoxCategoria";
+            this.cBoxCategoria.Size = new System.Drawing.Size(126, 21);
+            this.cBoxCategoria.TabIndex = 10;
+            // 
             // painelArrastar
             // 
             this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.painelArrastar.Controls.Add(this.pictureBox3);
+            this.painelArrastar.Controls.Add(this.label5);
             this.painelArrastar.Controls.Add(this.button1);
             this.painelArrastar.Controls.Add(this.btnMinimizar);
             this.painelArrastar.Location = new System.Drawing.Point(-7, -3);
@@ -340,6 +364,27 @@
             this.painelArrastar.TabIndex = 43;
             this.painelArrastar.Paint += new System.Windows.Forms.PaintEventHandler(this.painelArrastar_Paint);
             this.painelArrastar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.painelArrastar_MouseDown);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.catalogoProduto;
+            this.pictureBox3.Location = new System.Drawing.Point(13, 7);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(23, 23);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 39;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei", 9F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(42, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(207, 16);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "Formulário de Cadastro de Produto";
             // 
             // button1
             // 
@@ -350,7 +395,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(482, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(69, 23);
+            this.button1.Size = new System.Drawing.Size(69, 32);
             this.button1.TabIndex = 37;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = false;
@@ -364,9 +409,9 @@
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(404, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(418, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(67, 23);
+            this.btnMinimizar.Size = new System.Drawing.Size(67, 35);
             this.btnMinimizar.TabIndex = 0;
             this.btnMinimizar.Text = "—";
             this.btnMinimizar.UseVisualStyleBackColor = false;
@@ -384,30 +429,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 43;
             this.pictureBox2.TabStop = false;
-            // 
-            // cBoxCategoria
-            // 
-            this.cBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBoxCategoria.FormattingEnabled = true;
-            this.cBoxCategoria.Items.AddRange(new object[] {
-            "teste1",
-            "teste2",
-            "teste3"});
-            this.cBoxCategoria.Location = new System.Drawing.Point(265, 216);
-            this.cBoxCategoria.Name = "cBoxCategoria";
-            this.cBoxCategoria.Size = new System.Drawing.Size(126, 21);
-            this.cBoxCategoria.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 10.8F);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
-            this.label4.Location = new System.Drawing.Point(263, 187);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 18);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "Categoria";
             // 
             // FrmProduto
             // 
@@ -430,6 +451,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.painelArrastar.ResumeLayout(false);
+            this.painelArrastar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -444,7 +467,6 @@
         private System.Windows.Forms.TextBox txtNomeProduto;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnNovo;
@@ -464,5 +486,7 @@
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cBoxCategoria;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
