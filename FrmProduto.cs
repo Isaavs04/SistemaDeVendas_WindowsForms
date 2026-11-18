@@ -90,10 +90,10 @@ namespace Ativ_Sistema_de_Vendas
 
         public void verificaCampos()
         {
-          bool camposPreenchidos = !string.IsNullOrWhiteSpace(txtCdProduto.Text) 
-                            && !string.IsNullOrWhiteSpace(txtNomeProduto.Text) 
-                            && !string.IsNullOrWhiteSpace(txtPrecoProduto.Text) 
-                            && cBoxCategoria.SelectedIndex >= 0;
+            bool camposPreenchidos = !string.IsNullOrWhiteSpace(txtCdProduto.Text)
+                              && !string.IsNullOrWhiteSpace(txtNomeProduto.Text)
+                              && !string.IsNullOrWhiteSpace(txtPrecoProduto.Text)
+                              && cBoxCategoria.SelectedIndex >= 0;
 
             if (camposPreenchidos)
             {
@@ -103,9 +103,9 @@ namespace Ativ_Sistema_de_Vendas
                 }
                 if (!decimal.TryParse(txtPrecoProduto.Text.Trim(), out decimal precoProduto))
                 {
-                    throw new Exception("O preço deve ser válido. Tente Novamente!"); 
+                    throw new Exception("O preço deve ser válido. Tente Novamente!");
                 }
-                if(precoProduto <= 0)
+                if (precoProduto <= 0)
                 {
                     throw new Exception("O preço deve ser maior que 0. Tente Novamente!");
                 }
@@ -368,7 +368,7 @@ namespace Ativ_Sistema_de_Vendas
                     txtCdProduto.Clear();
                     txtNomeProduto.Clear();
                     txtPrecoProduto.Clear();
-                    cBoxCategoria.SelectedIndex= -1;
+                    cBoxCategoria.SelectedIndex = -1;
 
                     produtoCarregado = false;
 

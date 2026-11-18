@@ -80,11 +80,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.painelArrastar = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.erroCliente = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnApagarErros = new System.Windows.Forms.Button();
             this.btnApagarTudo = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -94,6 +97,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.painelArrastar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -407,9 +411,9 @@
             this.btnConsultar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnConsultar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultar.ForeColor = System.Drawing.Color.White;
-            this.btnConsultar.Location = new System.Drawing.Point(105, 3);
+            this.btnConsultar.Location = new System.Drawing.Point(95, 4);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 42);
+            this.btnConsultar.Size = new System.Drawing.Size(93, 47);
             this.btnConsultar.TabIndex = 32;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
@@ -424,9 +428,9 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(3, 3);
+            this.btnExcluir.Location = new System.Drawing.Point(3, 4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 42);
+            this.btnExcluir.Size = new System.Drawing.Size(93, 47);
             this.btnExcluir.TabIndex = 33;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = false;
@@ -441,9 +445,9 @@
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNovo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNovo.ForeColor = System.Drawing.Color.White;
-            this.btnNovo.Location = new System.Drawing.Point(387, 3);
+            this.btnNovo.Location = new System.Drawing.Point(369, 4);
             this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(75, 42);
+            this.btnNovo.Size = new System.Drawing.Size(93, 47);
             this.btnNovo.TabIndex = 34;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = false;
@@ -458,9 +462,9 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(468, 3);
+            this.btnSalvar.Location = new System.Drawing.Point(463, 4);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 42);
+            this.btnSalvar.Size = new System.Drawing.Size(93, 48);
             this.btnSalvar.TabIndex = 35;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -475,9 +479,9 @@
             this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAlterar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlterar.ForeColor = System.Drawing.Color.White;
-            this.btnAlterar.Location = new System.Drawing.Point(192, 3);
+            this.btnAlterar.Location = new System.Drawing.Point(182, 4);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 42);
+            this.btnAlterar.Size = new System.Drawing.Size(93, 47);
             this.btnAlterar.TabIndex = 36;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = false;
@@ -492,9 +496,9 @@
             this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFechar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFechar.ForeColor = System.Drawing.Color.White;
-            this.btnFechar.Location = new System.Drawing.Point(482, 3);
+            this.btnFechar.Location = new System.Drawing.Point(482, 0);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(69, 23);
+            this.btnFechar.Size = new System.Drawing.Size(78, 31);
             this.btnFechar.TabIndex = 37;
             this.btnFechar.Text = "X";
             this.btnFechar.UseVisualStyleBackColor = false;
@@ -565,9 +569,9 @@
             this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnApagar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnApagar.ForeColor = System.Drawing.Color.White;
-            this.btnApagar.Location = new System.Drawing.Point(297, 3);
+            this.btnApagar.Location = new System.Drawing.Point(275, 4);
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(75, 42);
+            this.btnApagar.Size = new System.Drawing.Size(93, 48);
             this.btnApagar.TabIndex = 37;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = false;
@@ -794,6 +798,8 @@
             // painelArrastar
             // 
             this.painelArrastar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(38)))), ((int)(((byte)(102)))));
+            this.painelArrastar.Controls.Add(this.pictureBox5);
+            this.painelArrastar.Controls.Add(this.label18);
             this.painelArrastar.Controls.Add(this.btnFechar);
             this.painelArrastar.Controls.Add(this.btnMinimizar);
             this.painelArrastar.Location = new System.Drawing.Point(-8, 0);
@@ -802,15 +808,36 @@
             this.painelArrastar.TabIndex = 42;
             this.painelArrastar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.painelArrastar_MouseDown);
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Ativ_Sistema_de_Vendas.Properties.Resources.FormCabecalhoUser;
+            this.pictureBox5.Location = new System.Drawing.Point(20, 3);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(27, 25);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 39;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(53, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(201, 16);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Formulário de Cadastro do Cliente";
+            // 
             // btnMinimizar
             // 
             this.btnMinimizar.BackColor = System.Drawing.Color.Transparent;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimizar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnMinimizar.ForeColor = System.Drawing.Color.White;
-            this.btnMinimizar.Location = new System.Drawing.Point(404, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(414, 0);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(67, 23);
+            this.btnMinimizar.Size = new System.Drawing.Size(67, 31);
             this.btnMinimizar.TabIndex = 0;
             this.btnMinimizar.Text = "—";
             this.btnMinimizar.UseVisualStyleBackColor = false;
@@ -821,6 +848,46 @@
             // erroCliente
             // 
             this.erroCliente.ContainerControl = this;
+            // 
+            // btnApagarErros
+            // 
+            this.btnApagarErros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(24)))), ((int)(((byte)(74)))));
+            this.btnApagarErros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagarErros.ForeColor = System.Drawing.Color.White;
+            this.btnApagarErros.Location = new System.Drawing.Point(206, 649);
+            this.btnApagarErros.Name = "btnApagarErros";
+            this.btnApagarErros.Size = new System.Drawing.Size(118, 23);
+            this.btnApagarErros.TabIndex = 43;
+            this.btnApagarErros.Text = "Apagar Erros";
+            this.btnApagarErros.UseVisualStyleBackColor = false;
+            this.btnApagarErros.Visible = false;
+            this.btnApagarErros.Click += new System.EventHandler(this.btnApagarErros_Click);
+            this.btnApagarErros.MouseEnter += new System.EventHandler(this.btnApagar_MouseEnter);
+            this.btnApagarErros.MouseLeave += new System.EventHandler(this.btnApagar_MouseLeave);
+            // 
+            // btnApagarTudo
+            // 
+            this.btnApagarTudo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(24)))), ((int)(((byte)(74)))));
+            this.btnApagarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagarTudo.ForeColor = System.Drawing.Color.White;
+            this.btnApagarTudo.Location = new System.Drawing.Point(324, 649);
+            this.btnApagarTudo.Name = "btnApagarTudo";
+            this.btnApagarTudo.Size = new System.Drawing.Size(103, 23);
+            this.btnApagarTudo.TabIndex = 44;
+            this.btnApagarTudo.Text = "Apagar Tudo";
+            this.btnApagarTudo.UseVisualStyleBackColor = false;
+            this.btnApagarTudo.Visible = false;
+            this.btnApagarTudo.Click += new System.EventHandler(this.btnApagarTudo_Click);
+            this.btnApagarTudo.MouseEnter += new System.EventHandler(this.btnApagarTudo_MouseEnter);
+            this.btnApagarTudo.MouseLeave += new System.EventHandler(this.btnApagarTudo_MouseLeave);
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(24)))), ((int)(((byte)(74)))));
+            this.panel8.Location = new System.Drawing.Point(-1, 30);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(553, 8);
+            this.panel8.TabIndex = 45;
             // 
             // pictureBox4
             // 
@@ -833,40 +900,13 @@
             this.pictureBox4.TabIndex = 41;
             this.pictureBox4.TabStop = false;
             // 
-            // btnApagarErros
-            // 
-            this.btnApagarErros.BackColor = System.Drawing.Color.Plum;
-            this.btnApagarErros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApagarErros.ForeColor = System.Drawing.Color.Indigo;
-            this.btnApagarErros.Location = new System.Drawing.Point(206, 649);
-            this.btnApagarErros.Name = "btnApagarErros";
-            this.btnApagarErros.Size = new System.Drawing.Size(118, 23);
-            this.btnApagarErros.TabIndex = 43;
-            this.btnApagarErros.Text = "Apagar Erros";
-            this.btnApagarErros.UseVisualStyleBackColor = false;
-            this.btnApagarErros.Visible = false;
-            this.btnApagarErros.Click += new System.EventHandler(this.btnApagarErros_Click);
-            // 
-            // btnApagarTudo
-            // 
-            this.btnApagarTudo.BackColor = System.Drawing.Color.Plum;
-            this.btnApagarTudo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnApagarTudo.ForeColor = System.Drawing.Color.Indigo;
-            this.btnApagarTudo.Location = new System.Drawing.Point(324, 649);
-            this.btnApagarTudo.Name = "btnApagarTudo";
-            this.btnApagarTudo.Size = new System.Drawing.Size(103, 23);
-            this.btnApagarTudo.TabIndex = 44;
-            this.btnApagarTudo.Text = "Apagar Tudo";
-            this.btnApagarTudo.UseVisualStyleBackColor = false;
-            this.btnApagarTudo.Visible = false;
-            this.btnApagarTudo.Click += new System.EventHandler(this.btnApagarTudo_Click);
-            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(549, 720);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.btnApagarTudo);
             this.Controls.Add(this.btnApagarErros);
             this.Controls.Add(this.painelArrastar);
@@ -890,6 +930,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.painelArrastar.ResumeLayout(false);
+            this.painelArrastar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erroCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
@@ -954,5 +996,8 @@
         private System.Windows.Forms.ErrorProvider erroCliente;
         private System.Windows.Forms.Button btnApagarTudo;
         private System.Windows.Forms.Button btnApagarErros;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }

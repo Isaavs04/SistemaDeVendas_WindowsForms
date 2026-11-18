@@ -151,6 +151,7 @@ namespace Ativ_Sistema_de_Vendas
             //Cria uma variavel booleana, tenta converter em double, se der para converter limCredValido passa a valer true e o valor o txtLimiteCredito.Text é armazenado na variabvel limcred, caso a conersão não possa ocorrer a variavel booleana ficará valendo false e o texto do txt não entra na variavel limcred
             bool limCredValido = double.TryParse(txtLimiteCredito.Text, out double limCred);
             bool numResidenciaVal = int.TryParse(txtNum.Text, out int numResidencia);
+            bool cdClienteValido = int.TryParse(txtCdCliente.Text, out int cdCliente);
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
             //Verifica se todos os itens foram preenchidos antes de testar se são válidos
@@ -158,6 +159,20 @@ namespace Ativ_Sistema_de_Vendas
             if (txtNome.Text != "" || txtTelefone.Text != "" || txtCdCliente.Text != "" || txtCpf.Text != "" || txtRG.Text != "" || txtRG.Text != "" || txtCEP.Text != "" || txtCidade.Text != "" || txtBairro.Text != "" || txtRua.Text != "" || txtNum.Text != "" || txtComplemento.Text != "" || cBoxUFEndereco.SelectedIndex != -1 || cBoxUFRG.SelectedIndex != -1)
             {
                 //Bloco de validação do usuário
+
+                if (!cdClienteValido)
+                {
+                    txtCdCliente.BackColor = Color.LightPink;
+                    txtCdCliente.ForeColor = Color.Red;
+                    //Checa se já tem o asterisco do erro
+                    if (txtCdCliente.Text.Contains('*'))
+                        txtCdCliente.Text = "*" + txtCdCliente.Text;
+                }
+                else
+                {
+                    txtCdCliente.BackColor = Color.White;
+                    txtCdCliente.ForeColor = Color.Black;
+                }
                 //Verifica se o nome é válido, sem caracteres e números
                 if (!semNm(nome))
                 {
@@ -278,7 +293,7 @@ namespace Ativ_Sistema_de_Vendas
                     txtRua.ForeColor = Color.Black;
                 }
 
-                if (semNm(nome) && nmTelValido() && validoCPF() && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+                if (semNm(nome) && nmTelValido() && validoCPF() && cdClienteValido && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
                 {
                     //Pode realizar update e insert, pois os dados foram verificados e são válidos
                     reiniciarTela();
@@ -302,7 +317,7 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnFechar_Hover(object sender, EventArgs e)
         {
-            BackColor = Color.Red;
+            BackColor = Color.FromArgb(78, 38, 102);
         }
 
         private void painelArrastar_MouseDown(object sender, MouseEventArgs e)
@@ -316,22 +331,22 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnFechar_MouseEnter(object sender, EventArgs e)
         {
-            btnFechar.BackColor = Color.Red;
+            btnFechar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnFechar_MouseLeave(object sender, EventArgs e)
         {
-            btnFechar.BackColor = Color.FromArgb(78, 38, 102);
+            btnFechar.BackColor = Color.Transparent;
         }
 
         private void btnMinimizar_MouseEnter(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.Red;
+            btnMinimizar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnMinimizar_MouseLeave(object sender, EventArgs e)
         {
-            btnMinimizar.BackColor = Color.FromArgb(78, 38, 102);
+            btnMinimizar.BackColor = Color.Transparent;
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
@@ -466,72 +481,72 @@ namespace Ativ_Sistema_de_Vendas
 
         private void btnExcluir_MouseEnter(object sender, EventArgs e)
         {
-            btnExcluir.BackColor = Color.Purple;
+            btnExcluir.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnExcluir_MouseLeave(object sender, EventArgs e)
         {
-            btnExcluir.BackColor = Color.FromArgb(78, 38, 102);
+            btnExcluir.BackColor = Color.Transparent;
         }
 
         private void btnConsultar_MouseEnter(object sender, EventArgs e)
         {
-            btnConsultar.BackColor = Color.Purple;
+            btnConsultar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnConsultar_MouseLeave(object sender, EventArgs e)
         {
-            btnConsultar.BackColor = Color.FromArgb(78, 38, 102);
+            btnConsultar.BackColor = Color.Transparent;
         }
 
         private void btnAlterar_MouseEnter(object sender, EventArgs e)
         {
-            btnAlterar.BackColor = Color.Purple;
+            btnAlterar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnAlterar_MouseLeave(object sender, EventArgs e)
         {
-            btnAlterar.BackColor = Color.FromArgb(78, 38, 102);
+            btnAlterar.BackColor = Color.Transparent;
         }
 
         private void btnApagar_MouseEnter(object sender, EventArgs e)
         {
-            btnApagar.BackColor = Color.Purple;
+            btnApagar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnApagar_MouseLeave(object sender, EventArgs e)
         {
-            btnApagar.BackColor = Color.FromArgb(78, 38, 102);
+            btnApagar.BackColor = Color.Transparent;
         }
 
         private void btnNovo_MouseEnter(object sender, EventArgs e)
         {
-            btnNovo.BackColor = Color.Purple;
+            btnNovo.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnNovo_MouseLeave(object sender, EventArgs e)
         {
-            btnNovo.BackColor = Color.FromArgb(78, 38, 102);
+            btnNovo.BackColor = Color.Transparent;
         }
 
         private void btnSalvar_MouseEnter(object sender, EventArgs e)
         {
-            btnSalvar.BackColor = Color.Purple;
+            btnSalvar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnSalvar_MouseLeave(object sender, EventArgs e)
         {
-            btnSalvar.BackColor = Color.FromArgb(78, 38, 102);
+            btnSalvar.BackColor = Color.Transparent;
         }
 
         private void btnBuscar_MouseEnter(object sender, EventArgs e)
         {
-            btnBuscar.BackColor = Color.Purple;
+            btnBuscar.BackColor = Color.FromArgb(122, 75, 150);
         }
 
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
-            btnBuscar.BackColor = Color.FromArgb(78, 38, 102);
+            btnBuscar.BackColor = Color.Transparent;
         }
 
         private void painelArrastar_Paint(object sender, PaintEventArgs e)
@@ -542,6 +557,39 @@ namespace Ativ_Sistema_de_Vendas
         private void btnApagarTudo_Click(object sender, EventArgs e)
         {
             reiniciarTela();
+            txtNome.Clear();
+            txtNome.BackColor = Color.White;
+            txtNome.ForeColor = Color.Black;
+            txtTelefone.Clear();
+            txtTelefone.BackColor = Color.White;
+            txtTelefone.ForeColor = Color.Black;
+            txtCpf.Clear();
+            txtCpf.BackColor = Color.White;
+            txtCpf.ForeColor = Color.Black;
+            txtRG.Clear();
+            txtRG.BackColor = Color.White;
+            txtRG.ForeColor = Color.Black;
+            txtRG.Clear();
+            txtRG.BackColor = Color.White;
+            txtRG.ForeColor = Color.Black;
+            txtNum.Clear();
+            txtNum.BackColor = Color.White;
+            txtNum.ForeColor = Color.Black;
+            txtCidade.Clear();
+            txtCidade.BackColor = Color.White;
+            txtCidade.ForeColor = Color.Black;
+            txtBairro.Clear();
+            txtBairro.BackColor = Color.White;
+            txtBairro.ForeColor = Color.Black;
+            txtRua.Clear();
+            txtRua.BackColor = Color.White;
+            txtRua.ForeColor = Color.Black;
+            txtCEP.Clear();
+            txtCEP.BackColor = Color.White;
+            txtCEP.ForeColor = Color.Black;
+
+            btnApagarTudo.Visible = false;
+            btnApagarErros.Visible = false;
             btnApagarTudo.Visible = false;
             btnApagarErros.Visible = false;
         }
@@ -554,7 +602,7 @@ namespace Ativ_Sistema_de_Vendas
             bool enderecoValido = await validarCEP();
             string nome = txtNome.Text, cidade = txtCidade.Text, rua = txtRua.Text, bairro = txtBairro.Text;
 
-            if (validarRG() &&  nmTelValido() && validoCPF() && semNm(nome) && enderecoValido &&  limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
+            if (validarRG() && nmTelValido() && validoCPF() && semNm(nome) && enderecoValido && limCredValido && numResidenciaVal && semNm(cidade) && semNm(bairro) && semNm(rua))
             {
                 MessageBox.Show("Não há erros para apagar", "Interface sem erros", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -659,8 +707,8 @@ namespace Ativ_Sistema_de_Vendas
             string cep = txtCEP.Text.Replace("-", "").Trim();
             //URL do via cep com o cep que o usuário passou
             string url = $"https://viacep.com.br/ws/{cep}/json/";
-                //Um CEP não tem menos ou mais que 8 números
-                if (cep.Length != 8)
+            //Um CEP não tem menos ou mais que 8 números
+            if (cep.Length != 8)
             {
                 return false;
             }
@@ -690,7 +738,7 @@ namespace Ativ_Sistema_de_Vendas
                                 txtCidade.Enabled = true;
                             if (e.Contains("bairro"))
                             {
-                                txtBairro.Text = e.Replace("bairro", "").Replace ("\"", " ").Replace(":", " ").Trim();
+                                txtBairro.Text = e.Replace("bairro", "").Replace("\"", " ").Replace(":", " ").Trim();
                                 txtBairro.Enabled = false;
                             }
                             else
@@ -713,7 +761,7 @@ namespace Ativ_Sistema_de_Vendas
                         }
                     }
                 }
-                    
+
                 return true;
             }
             catch
@@ -725,6 +773,16 @@ namespace Ativ_Sistema_de_Vendas
         private async void txtCEP_Leave(object sender, EventArgs e)
         {
             await validarCEP();
+        }
+
+        private void btnApagarTudo_MouseLeave(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnApagarTudo_MouseEnter(object sender, EventArgs e)
+        {
+            
         }
     }
 }
