@@ -93,22 +93,30 @@
             // btnApagar
             // 
             this.btnApagar.Location = new System.Drawing.Point(454, -2);
+            this.btnApagar.Visible = false;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Location = new System.Drawing.Point(3, -2);
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(168, -2);
+            this.btnConsultar.Location = new System.Drawing.Point(241, -2);
+            this.btnConsultar.Visible = false;
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Location = new System.Drawing.Point(307, -2);
+            this.btnAlterar.Location = new System.Drawing.Point(95, -2);
             // 
             // btnNovo
             // 
             this.btnNovo.Location = new System.Drawing.Point(577, -2);
+            this.btnNovo.Visible = false;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Location = new System.Drawing.Point(724, -2);
+            this.btnSalvar.Visible = false;
             // 
             // pictureBox3
             // 
@@ -160,6 +168,7 @@
             // 
             this.txtValorTotal.Location = new System.Drawing.Point(234, 377);
             this.txtValorTotal.Name = "txtValorTotal";
+            this.txtValorTotal.ReadOnly = true;
             this.txtValorTotal.Size = new System.Drawing.Size(257, 20);
             this.txtValorTotal.TabIndex = 62;
             // 
@@ -287,9 +296,19 @@
             // 
             this.nmUpdpwnQTDProd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nmUpdpwnQTDProd.Location = new System.Drawing.Point(17, 95);
+            this.nmUpdpwnQTDProd.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nmUpdpwnQTDProd.Name = "nmUpdpwnQTDProd";
             this.nmUpdpwnQTDProd.Size = new System.Drawing.Size(150, 20);
             this.nmUpdpwnQTDProd.TabIndex = 58;
+            this.nmUpdpwnQTDProd.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // pictureBox2
             // 
