@@ -13,24 +13,38 @@ Projeto realizado em sala de aula, na matéria de programação orientada a obje
     style = "padding-right: 10px;"
     src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" 
 />
+<img
+    align = "left"
+    alt = "SQL"
+    title = "SQL"
+    width = "30px"
+    style = "padding-right: 10px;"
+    src= "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" 
+/>
 <br>
 
-- **Linguagem:** C#
+- **Linguagens:** C# e SQL
 - **Framework:** .NET Framework / .NET Core
-- **Interface:** Windows Forms (WinForms)
-- **IDE:** Visual Studio
+- **Interfaces:** Windows Forms (WinForms) e SQL Server Management Studio 2022
+- **IDE:** Visual Studio e SQL Server Management Studio 2022
 
 
 ## ✦ Funcionalidades
-- [x] Cadastrar Cliente, produto e categora
+- [x] Cadastrar cliente, produto e categoria
+- [x] Gerenciar carrinhos de seus respectivos donos 
 - [x] Sistema com múltiplas janelas
 - [x] Botões de limpar, sair e organizar guias(vertical, horizontal e cascata)
-- [x] Menu de alteração de dados(Salvar, alterar e etc).
+- [x] Menu de alteração de dados(Salvar, alterar e etc)
+- [x] CRUD
+- [x] Conexão com banco de dados
+- [x] API dos correios para validação de CEP
+- [x] Tratamento de exceção   
 
 ## Como Executar o Projeto
 
 ### Pré-requisitos
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) com a carga de trabalho **Desenvolvimento para desktop com .NET** instalada.
+- [SQL Server Management Studio 2022](https://learn.microsoft.com/en-us/ssms/install/install)
 
 ### Passo a Passo
 
@@ -50,9 +64,10 @@ Projeto realizado em sala de aula, na matéria de programação orientada a obje
 ## ✦ Créditos
 Programadoras:
 - Bruna de Oliveira Bernardes dos Santos
-- Maria Paula Toledo da Silva
 - Isabelle Avelino dos Santos
+- Maria Paula Toledo da Silva
 
+## Créditos
 ### ícones
 1. Uniconlabs
 2. Magnific
@@ -63,6 +78,7 @@ Programadoras:
 7. Kiranshastry
 8. Muhammad_Usman
 9. Marz Gallery
+10. sonnycandra
    
 ✦ Site: https://www.flaticon.com/br/
 
